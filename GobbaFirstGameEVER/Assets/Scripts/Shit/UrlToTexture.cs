@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class UrlToTexture : MonoBehaviour
 {
+    //deet här scriptet suger fet kamel-dahhri
     public SpriteRenderer spriteRenderer;
     public Texture2D tex;
     public float scale = 1f;
