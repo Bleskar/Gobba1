@@ -340,9 +340,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5261cefaf7c1eb04e9b89de7239f4eb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  acceleration: 40
-  deacceleration: 40
+  acceleration: 100
+  deacceleration: 80
   topSpeed: 7
+  dashLength: 5
+  dashSpeed: 30
 --- !u!50 &1163994753
 Rigidbody2D:
   serializedVersion: 4
