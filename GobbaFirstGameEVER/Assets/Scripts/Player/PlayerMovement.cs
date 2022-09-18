@@ -5,10 +5,16 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
 {
-    [Header("Options")]
+    [Header("Movement Options")]
     [SerializeField] float acceleration = 50f;
     [SerializeField] float deacceleration = 50f;
     [SerializeField] float topSpeed = 8f;
+
+    [Header("Dash")]
+    [SerializeField] float dashLength = 5f;
+    [SerializeField] float dashSpeed = 20f;
+    float DashTime => dashLength / dashSpeed;
+    public bool Dashing { get; private set; }
 
     Rigidbody2D rb;
 
@@ -21,6 +27,13 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetButtonDown("Dash"))
+        {
+            StartCoroutine(
+                Dash(new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"))));
+            return;
+        }
+
         Movement(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
     }
 
@@ -43,5 +56,25 @@ public class PlayerMovement : MonoBehaviour
 
         if (rb.velocity.normalized != direction)
             rb.velocity = Vector2.zero;
+    }
+
+    IEnumerator Dash(Vector2 direction)
+    {
+        enabled = false;
+        Dashing = true;
+
+        float timer = 0f;
+        while (timer < DashTime)
+        {
+            rb.velocity = direction * dashSpeed;
+
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        rb.velocity = direction * topSpeed;
+
+        enabled = true;
+        Dashing = false;
     }
 }
