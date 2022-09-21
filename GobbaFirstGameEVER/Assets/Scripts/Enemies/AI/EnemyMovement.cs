@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMov : MonoBehaviour
+public class EnemyMovement : MonoBehaviour
 {
     [Header("Options")]
     [SerializeField] float acceleration = 50f;
