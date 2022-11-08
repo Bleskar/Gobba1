@@ -9,6 +9,20 @@ public class Room : MonoBehaviour
     public bool extra;
     public bool locked;
 
+    private void Awake()
+    {
+        for (int i = 0; i < doors.Length; i++)
+        {
+            doors[i].parentRoom = this;
+        }
+    }
+
+    private void Start()
+    {
+        if (this != PlayerMovement.Instance.CurrentRoom)
+            gameObject.SetActive(false);
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = locked ? Color.red :
@@ -21,7 +35,7 @@ public class Room : MonoBehaviour
             Gizmos.color = doors[i].connection ? Color.green : Color.white;
 
             Gizmos.DrawWireSphere(doors[i].transform.position, .2f);
-            Gizmos.DrawRay(doors[i].transform.position, doors[i].transform.forward);
+            Gizmos.DrawRay(doors[i].transform.position, doors[i].transform.right);
         }
     }
 }

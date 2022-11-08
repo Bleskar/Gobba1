@@ -23,6 +23,7 @@ public class Generation : MonoBehaviour
     {
         //Create start room
         Room currentRoom = CreateNewRoom(Vector3.zero, startRoom);
+        PlayerMovement.Instance.SetRoom(currentRoom);
         dungeon.Add(currentRoom);
 
         Door door;
@@ -137,7 +138,7 @@ public class Generation : MonoBehaviour
 
     Door GetDoorFromDoor(Room r, Door door)
     {
-        Door[] availableDoors = System.Array.FindAll(r.doors, i => i.transform.forward == -door.transform.forward);
+        Door[] availableDoors = System.Array.FindAll(r.doors, i => i.transform.right == -door.transform.right);
         return availableDoors[Random.Range(0, availableDoors.Length)];
     }
 }

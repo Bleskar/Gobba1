@@ -5,6 +5,9 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
 {
+    public static PlayerMovement Instance { get; private set; }
+    public Room CurrentRoom { get; private set; }
+
     [Header("Movement Options")]
     [SerializeField] float acceleration = 50f;
     [SerializeField] float deacceleration = 50f;
@@ -16,7 +19,15 @@ public class PlayerMovement : MonoBehaviour
     float DashTime => dashLength / dashSpeed;
     public bool Dashing { get; private set; }
 
+    public bool Frozen => roomTransition || Dashing;
+    public bool roomTransition;
+
     Rigidbody2D rb;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +38,9 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Frozen)
+            return;
+
         if (Input.GetButtonDown("Dash"))
         {
             StartCoroutine(
@@ -60,7 +74,6 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator Dash(Vector2 direction)
     {
-        enabled = false;
         Dashing = true;
 
         float timer = 0f;
@@ -74,7 +87,16 @@ public class PlayerMovement : MonoBehaviour
 
         rb.velocity = direction * topSpeed;
 
-        enabled = true;
         Dashing = false;
+    }
+
+    public void SetRoom(Room room)
+    {
+        if (!room)
+            return;
+
+        CurrentRoom?.gameObject.SetActive(false);
+        CurrentRoom = room;
+        room.gameObject.SetActive(true);
     }
 }
