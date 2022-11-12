@@ -15,7 +15,10 @@ public abstract class EnemyBase : MonoBehaviour, IKillable
     //--REFRENCES--
     protected Rigidbody2D rb;
     protected SpriteRenderer sr;
-    Animator anim;
+    protected CharacterAnimator anim;
+
+    //used when player enters room to reset the enemy's position
+    [HideInInspector] public Vector3 startPosition;
 
     private void Start()
         => Initialize();
@@ -24,7 +27,7 @@ public abstract class EnemyBase : MonoBehaviour, IKillable
     {
         Health = maxHealth;
 
-        anim = GetComponent<Animator>();
+        anim = GetComponent<CharacterAnimator>();
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
     }
@@ -48,5 +51,10 @@ public abstract class EnemyBase : MonoBehaviour, IKillable
 
         CurrentAnimation = animation;
         anim.Play(animation);
+    }
+
+    public void RoomEnter()
+    {
+        transform.position = startPosition;
     }
 }

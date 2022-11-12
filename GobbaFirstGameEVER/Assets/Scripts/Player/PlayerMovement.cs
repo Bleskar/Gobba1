@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     public bool roomTransition;
 
     Rigidbody2D rb;
+    SpriteRenderer sr;
 
     private void Awake()
     {
@@ -33,11 +34,14 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        sr = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        sr.enabled = !roomTransition;
+
         if (Frozen)
             return;
 

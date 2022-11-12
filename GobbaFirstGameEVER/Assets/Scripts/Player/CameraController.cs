@@ -9,6 +9,7 @@ public class CameraController : MonoBehaviour
     Camera cam;
     [SerializeField] float speed;
     [SerializeField] float transitionTime = .5f;
+    [SerializeField] Vector2 cameraPan = Vector2.one;
 
     PlayerMovement player;
 
@@ -40,6 +41,8 @@ public class CameraController : MonoBehaviour
         Vector3 target = player.transform.position;
         target.z = transform.position.z;
 
+        target += new Vector3(Input.GetAxis("Horizontal") * cameraPan.x, Input.GetAxis("Vertical") * cameraPan.y);
+
         transform.position = Vector3.Lerp(transform.position, target, Time.deltaTime * 5f);
     }
 
@@ -69,7 +72,7 @@ public class CameraController : MonoBehaviour
             yield return null;
         }
 
-        player.transform.position = new Vector3(end.transform.position.x, end.transform.position.y, player.transform.position.z);
+        player.transform.position = new Vector3(end.transform.position.x, end.transform.position.y, player.transform.position.z) - end.transform.right * 2f;
         player.roomTransition = false;
         start.parentRoom.gameObject.SetActive(false);
         transitioning = false;

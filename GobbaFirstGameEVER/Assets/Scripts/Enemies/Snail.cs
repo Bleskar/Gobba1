@@ -11,12 +11,33 @@ public class Snail : EnemyBase
 
     [SerializeField] LayerMask walls;
 
+    [SerializeField] GameObject poisonPool;
+    [SerializeField] float poolInterval = 3f;
+    float timer;
+
     float walkTimer;
     Vector2 direction;
 
     // Update is called once per frame
     void Update()
     {
+        timer -= Time.deltaTime;
+        if (timer <= 0f)
+        {
+            timer += poolInterval;
+            Instantiate(poisonPool, transform.position + Vector3.forward, Quaternion.identity);
+        }
+
+        if (direction.y > 0f)
+            anim.Play("CrawlUp");
+        else if (direction.y < 0f)
+            anim.Play("CrawlDown");
+        else
+        {
+            sr.flipX = direction.x < 0f;
+            anim.Play("CrawlSide");
+        }
+
         if (walkTimer > 0f)
             walkTimer -= Time.deltaTime;
         else

@@ -12,6 +12,9 @@ GameObject:
   - component: {fileID: 505126333122630311}
   - component: {fileID: 505126333122630308}
   - component: {fileID: 505126333122630309}
+  - component: {fileID: 4778623051039678940}
+  - component: {fileID: 1176954536374763217}
+  - component: {fileID: 583675874684998695}
   m_Layer: 0
   m_Name: Snail
   m_TagString: Untagged
@@ -75,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: fff5fdf6768301d4fbc8086a43f918f5, type: 3}
+  m_Sprite: {fileID: 1988874914, guid: 86ece9169644c8a40b645ae1ac6f9765, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,12 +102,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 5
+  startPosition: {x: 0, y: 0, z: 0}
   speed: 1
   walkTimeMin: 3
   walkTimeMax: 5
   walls:
     serializedVersion: 2
     m_Bits: 16384
+  poisonPool: {fileID: 5614064358094577793, guid: bf0c53da3f8b3cf46b263c797b5a43d6, type: 3}
+  poolInterval: 3
 --- !u!50 &505126333122630309
 Rigidbody2D:
   serializedVersion: 4
@@ -126,3 +132,51 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!95 &4778623051039678940
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 505126333122630306}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0b24ee547e7d5c94091f5ba5c223a4ad, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1176954536374763217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 505126333122630306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0001987d1a240ce4d8dbc9ce7d1cc63f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &583675874684998695
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 505126333122630306}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.4

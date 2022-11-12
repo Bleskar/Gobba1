@@ -14,7 +14,7 @@ public class DropTable<T>
         for (int i = 0; i < items.Length; i++)
         {
             items[i].min = maxRandom;
-            maxRandom += items[i].wheight;
+            maxRandom += items[i].weight;
         }
     }
 
@@ -28,9 +28,9 @@ public class DropTable<T>
     public struct Item
     {
         public T item;
-        public float wheight;
+        public float weight;
 
         [HideInInspector] public float min;
-        public float Max => min + wheight;
+        public float Max => min + weight;
     }
 }

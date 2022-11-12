@@ -8,5 +8,8 @@ public class Weapon : ItemBase
     [Header("Base Stats")]
     public int damage;
     public float attackCooldown;
+    public float attackTime;
+    public float attackRadius = .75f;
+    public float attackOffset = 0f;
 }
 
