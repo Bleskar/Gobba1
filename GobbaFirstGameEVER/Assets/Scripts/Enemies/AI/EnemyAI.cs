@@ -20,7 +20,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField]
     private float attackDistance = 0.5f;
 
-    public UnityEvent OnAttackPressed;
+    public UnityEvent<Vector3> OnAttackPressed;
     public UnityEvent<Vector2> OnMovementInput, OnPointerInput;
 
     [SerializeField]
@@ -77,8 +77,11 @@ public class EnemyAI : MonoBehaviour
             {
                 //Attack Logic
                 movementInput = Vector2.zero;
-                OnAttackPressed?.Invoke();
-                //ska det verkligen vara waitforseconds!?!?
+
+                Vector3 direction = (aiData.currentTarget.position - transform.position).normalized;
+
+                OnAttackPressed?.Invoke(direction);
+
                 yield return new WaitForSeconds(attackDelay);
                 StartCoroutine(ChaseAndAttack());
             }

@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 5825197433061317315}
   - component: {fileID: 5825197433061317314}
   - component: {fileID: 5825197433061317317}
+  - component: {fileID: 8377466285002723975}
   - component: {fileID: 5825197433061317319}
   - component: {fileID: 5825197433061317318}
   - component: {fileID: 5825197433061317312}
@@ -187,6 +188,24 @@ MonoBehaviour:
   acceleration: 50
   deacceleration: 50
   topSpeed: 1
+--- !u!114 &8377466285002723975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5825197433061317321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 062ec2b1b58569f499cfc3f5403d3223, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  attackRadius: 0
+  attackOffset: 0
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &5825197433061317319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,13 +247,13 @@ MonoBehaviour:
   OnAttackPressed:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 8377466285002723975}
+        m_TargetAssemblyTypeName: EnemySwordAttack, Assembly-CSharp
+        m_MethodName: Attack
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
