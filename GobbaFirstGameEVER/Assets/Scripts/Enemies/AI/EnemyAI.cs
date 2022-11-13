@@ -19,6 +19,8 @@ public class EnemyAI : MonoBehaviour
 
     [SerializeField]
     private float attackDistance = 0.5f;
+    [SerializeField]
+    private float attackMinDistance = 0f;
 
     public UnityEvent<Vector3> OnAttackPressed;
     public UnityEvent<Vector2> OnMovementInput, OnPointerInput;
@@ -73,13 +75,14 @@ public class EnemyAI : MonoBehaviour
         {
             float distance = Vector2.Distance(aiData.currentTarget.position, transform.position);
 
-            if (distance < attackDistance)
+            if (distance < attackDistance && distance > attackMinDistance)
             {
                 //Attack Logic
                 movementInput = Vector2.zero;
 
                 Vector3 direction = (aiData.currentTarget.position - transform.position).normalized;
 
+                
                 OnAttackPressed?.Invoke(direction);
 
                 yield return new WaitForSeconds(attackDelay);
@@ -89,6 +92,10 @@ public class EnemyAI : MonoBehaviour
             {
                 //FollowLogic
                 movementInput = movementDirectionSolver.GetDirectionToMove(steeringBehaviours, aiData);
+                if (distance < attackMinDistance)
+                {
+                    movementInput = -movementInput;
+                }
                 yield return new WaitForSeconds(aiUpdateDelay);
                 StartCoroutine(ChaseAndAttack());
             }

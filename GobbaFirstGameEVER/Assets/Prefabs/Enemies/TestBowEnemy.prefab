@@ -44,10 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c26b34bfde48d8841b7fbd3d0efc5ee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionRadius: 2
+  detectionRadius: 3.17
   layerMask:
     serializedVersion: 2
-    m_Bits: 16512
+    m_Bits: 49280
 --- !u!1 &5825197432984187850
 GameObject:
   m_ObjectHideFlags: 0
@@ -92,13 +92,13 @@ GameObject:
   - component: {fileID: 5825197433061317315}
   - component: {fileID: 5825197433061317314}
   - component: {fileID: 5825197433061317317}
-  - component: {fileID: 2293536570857973388}
+  - component: {fileID: 8673216482226060716}
   - component: {fileID: 5825197433061317319}
   - component: {fileID: 5825197433061317318}
   - component: {fileID: 5825197433061317312}
   - component: {fileID: 5825197433061317313}
   m_Layer: 0
-  m_Name: TestEnemy
+  m_Name: TestBowEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -188,7 +188,7 @@ MonoBehaviour:
   acceleration: 50
   deacceleration: 50
   topSpeed: 1
---- !u!114 &2293536570857973388
+--- !u!114 &8673216482226060716
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -197,15 +197,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 5825197433061317321}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 062ec2b1b58569f499cfc3f5403d3223, type: 3}
+  m_Script: {fileID: 11500000, guid: 725f75de804f8344bb0022de453fcbb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectile: {fileID: 155428016594377769, guid: 07b82b5cc2c43514eb0b107e5b1e9e29, type: 3}
   damage: 1
-  attackRadius: 0.66
-  attackOffset: 0.35
+  force: 100
+  attackOffset: 1
   playerLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
 --- !u!114 &5825197433061317319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,13 +244,13 @@ MonoBehaviour:
   detectionDelay: 0.05
   aiUpdateDelay: 0.06
   attackDelay: 1
-  attackDistance: 2
-  attackMinDistance: 0
+  attackDistance: 7
+  attackMinDistance: 5
   OnAttackPressed:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2293536570857973388}
-        m_TargetAssemblyTypeName: EnemySwordAttack, Assembly-CSharp
+      - m_Target: {fileID: 8673216482226060716}
+        m_TargetAssemblyTypeName: EnemyBowScript, Assembly-CSharp
         m_MethodName: Attack
         m_Mode: 0
         m_Arguments:
@@ -555,7 +556,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4c76382ac18ff643a681601f18b1f6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetDetectionRange: 8.2
+  targetDetectionRange: 12
   obstaclesLayerMask:
     serializedVersion: 2
     m_Bits: 16576
