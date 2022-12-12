@@ -6,9 +6,24 @@ public class PlayerCombat : MonoBehaviour, IKillable
 {
     public static PlayerCombat Instance { get; private set; }
     public PlayerMovement Movement { get; private set; }
+    public PlayerInventory Inventory { get; private set; }
 
     [Header("Player Stats")]
-    [SerializeField] int maxHealth = 100;
+    [SerializeField] int initMaxHealth = 100;
+    int MaxHealth
+    {
+        get
+        {
+            int itemBoost = 0;
+
+            foreach (StatItem i in Inventory.Items)
+            {
+                itemBoost += i.healthBoost;
+            }
+
+            return initMaxHealth + itemBoost;
+        }
+    }
 
     int health;
     public int Health
@@ -16,8 +31,8 @@ public class PlayerCombat : MonoBehaviour, IKillable
         get => health;
         set
         {
-            if (value > maxHealth)
-                value = maxHealth;
+            if (value > MaxHealth)
+                value = MaxHealth;
             else if (value < 0)
                 value = 0;
 
@@ -32,7 +47,7 @@ public class PlayerCombat : MonoBehaviour, IKillable
     [Header("Attack Information")]
     [SerializeField] Animator slashAnimation;
     SpriteRenderer slashSprite;
-    public Weapon holding;
+    public Weapon Holding => Inventory?.Holding;
 
     public bool Attacking { get; private set; }
     public bool CanAttack => !Movement.Frozen && !Attacking;
@@ -46,10 +61,12 @@ public class PlayerCombat : MonoBehaviour, IKillable
     {
         Instance = this;
         Movement = GetComponent<PlayerMovement>();
+        Inventory = GetComponent<PlayerInventory>();
     }
 
     private void Start()
     {
+        health = MaxHealth;
         slashSprite = slashAnimation.GetComponent<SpriteRenderer>();
         sr = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
@@ -81,43 +98,43 @@ public class PlayerCombat : MonoBehaviour, IKillable
         slashAnimation.gameObject.SetActive(true);
 
         //animation stuff
-        slashAnimation.speed = 1f / holding.attackTime;
+        slashAnimation.speed = 1f / Holding.attackTime;
         slashAnimation.Play("Slash");
 
         //position rotation and scale
-        slashAnimation.transform.position = transform.position + direction * (holding.attackRadius + holding.attackOffset);
-        slashAnimation.transform.localScale = Vector3.one * holding.attackRadius * 2f;
+        slashAnimation.transform.position = transform.position + direction * (Holding.attackRadius + Holding.attackOffset);
+        slashAnimation.transform.localScale = Vector3.one * Holding.attackRadius * 2f;
         slashAnimation.transform.rotation = Quaternion.Euler(0f, 0f, (Mathf.Atan(direction.y / direction.x) * 180f) / Mathf.PI);
         slashSprite.flipX = direction.x < 0f;
 
-        yield return new WaitForSeconds(holding.attackTime / 2f);
+        yield return new WaitForSeconds(Holding.attackTime / 2f);
 
         AttackHitBox(direction);
 
-        yield return new WaitForSeconds(holding.attackTime / 2f);
+        yield return new WaitForSeconds(Holding.attackTime / 2f);
         slashAnimation.gameObject.SetActive(false);
 
-        yield return new WaitForSeconds(holding.attackCooldown);
+        yield return new WaitForSeconds(Holding.attackCooldown);
         Attacking = false;
     }
 
     void AttackHitBox(Vector3 direction)
     {
-        Collider2D[] cda = Physics2D.OverlapCircleAll(transform.position + direction * (holding.attackRadius + holding.attackOffset), holding.attackRadius, enemyLayer);
+        Collider2D[] cda = Physics2D.OverlapCircleAll(transform.position + direction * (Holding.attackRadius + Holding.attackOffset), Holding.attackRadius, enemyLayer);
         for (int i = 0; i < cda.Length; i++)
         {
             IKillable ik = cda[i].GetComponent<IKillable>();
-            if (ik != null) ik.Damage(holding.damage, direction);
+            if (ik != null) ik.Damage(Holding.damage, direction);
         }
     }
 
     private void OnDrawGizmos()
     {
-        if (!holding)
+        if (!Holding)
             return;
 
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position + Vector3.right * (holding.attackRadius + holding.attackOffset), holding.attackRadius);
+        Gizmos.DrawWireSphere(transform.position + Vector3.right * (Holding.attackRadius + Holding.attackOffset), Holding.attackRadius);
     }
 
     public void Damage(int dmg, Vector2 knock)

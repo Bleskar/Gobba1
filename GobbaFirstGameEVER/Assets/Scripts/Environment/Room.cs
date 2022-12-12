@@ -11,7 +11,7 @@ public class Room : MonoBehaviour
 
     [Header("Enemies")]
     [SerializeField] DropTable<EnemyBase> spawnableMobs = new DropTable<EnemyBase>();
-    [SerializeField] Transform[] spawnPositions = new Transform[0];
+    [SerializeField] Transform spawnPositionsParent;
     [SerializeField] int minNumberOfMobs = 0;
     [SerializeField] int maxNumberOfMobs = 1;
 
@@ -19,6 +19,13 @@ public class Room : MonoBehaviour
     [SerializeField] int maxRemoveObjects = 2;
     [SerializeField] int minRemoveObjects = 1;
     [SerializeField] Transform objectsParent;
+
+    [Header("Items")]
+    [SerializeField] [Range(0f, 1f)] float dropChance;
+    [SerializeField] DropTable<ItemBase> itemDrops = new DropTable<ItemBase>();
+    [SerializeField] Transform dropArea;
+    [SerializeField] ItemWorld itemPrefab;
+    bool enemiesKilled;
 
     //current mobs and breakable objects
     List<GameObject> currentBreakableObjects = new List<GameObject>();
@@ -41,6 +48,29 @@ public class Room : MonoBehaviour
         RemoveDestructableObjects();
     }
 
+    private void Update()
+    {
+        if (!enemiesKilled && currentEnemies.Count <= 0)
+        {
+            enemiesKilled = true;
+            RoomCleared();
+        }
+    }
+
+    void RoomCleared()
+    {
+        float dc = Random.Range(0f, 1f);
+        if (dc < dropChance)
+            DropTreasure();
+    }
+
+    void DropTreasure()
+    {
+        ItemBase drop = itemDrops.Drop();
+        ItemWorld clone = Instantiate(itemPrefab, dropArea.position, Quaternion.identity);
+        clone.item = drop;
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = locked ? Color.red :
@@ -56,20 +86,20 @@ public class Room : MonoBehaviour
             Gizmos.DrawRay(doors[i].transform.position, doors[i].transform.right);
         }
 
-        Gizmos.color = Color.red;
-        foreach (Transform p in spawnPositions)
-        {
-            if (!p)
-                continue;
+        if (!spawnPositionsParent)
+            return;
 
-            Gizmos.DrawSphere(p.transform.position, .2f);
+        Gizmos.color = Color.red;
+        for (int i = 0; i < spawnPositionsParent.childCount; i++)
+        {
+            Gizmos.DrawSphere(spawnPositionsParent.GetChild(i).position, .2f);
         }
     }
 
     void SpawnEnemies()
     {
         //ser till att ni inte gör något fel här (jag tittar på dig Filip Ryefalk)
-        if (maxNumberOfMobs > spawnPositions.Length)
+        if (maxNumberOfMobs > spawnPositionsParent.childCount)
         {
             Debug.LogError($"Hallå! maxNumberOfMobs får inte vara större än antalet spawn-positioner! (Room Name: {gameObject.name})");
             return;
@@ -87,8 +117,7 @@ public class Room : MonoBehaviour
         {
             //randomizes a position for the new enemy to be placed at
             //then removes the spawnposition so enemies cant spawn on top of each other
-            Transform[] availablePositions = System.Array.FindAll(spawnPositions, j => j != null);
-            Transform selectedSpawnPos = availablePositions[Random.Range(0, availablePositions.Length)];
+            Transform selectedSpawnPos = spawnPositionsParent.GetChild(Random.Range(0, spawnPositionsParent.childCount));
 
             //creates the enemy
             EnemyBase clone = Instantiate(spawnableMobs.Drop(), selectedSpawnPos.position, Quaternion.identity);
