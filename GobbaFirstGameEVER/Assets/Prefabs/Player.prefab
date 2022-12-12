@@ -117,6 +117,7 @@ GameObject:
   - component: {fileID: 5534197356667521008}
   - component: {fileID: 5534197356667520782}
   - component: {fileID: 1630959845997650173}
+  - component: {fileID: 8728990159350056462}
   - component: {fileID: 5534197356667520783}
   - component: {fileID: 5534197356667520780}
   m_Layer: 6
@@ -209,8 +210,8 @@ MonoBehaviour:
   acceleration: 100
   deacceleration: 80
   topSpeed: 7
-  dashLength: 1.5
-  dashSpeed: 40
+  dashLength: 3
+  dashSpeed: 25
   roomTransition: 0
 --- !u!114 &1630959845997650173
 MonoBehaviour:
@@ -224,11 +225,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96e0fae0b9cc9e74cb88777dc03aa86e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initMaxHealth: 100
   enemyLayer:
     serializedVersion: 2
     m_Bits: 49152
   slashAnimation: {fileID: 7238577586652824885}
+--- !u!114 &8728990159350056462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5534197356667521011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6098a22a11e32c74f8c180ae602932ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   holding: {fileID: 11400000, guid: 4ec7bac9dde27b54996f536c00b162fd, type: 2}
+  items: []
+  maxItems: 10
 --- !u!50 &5534197356667520783
 Rigidbody2D:
   serializedVersion: 4
