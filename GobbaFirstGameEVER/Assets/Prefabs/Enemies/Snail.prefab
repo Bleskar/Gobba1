@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4778623051039678940}
   - component: {fileID: 1176954536374763217}
   - component: {fileID: 583675874684998695}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Snail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76cea1cdd766b8c48b8f9ebcff58e1c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
+  maxHealth: 50
   startPosition: {x: 0, y: 0, z: 0}
   speed: 1
   walkTimeMin: 3

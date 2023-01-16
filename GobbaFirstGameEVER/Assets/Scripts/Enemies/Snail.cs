@@ -21,6 +21,8 @@ public class Snail : EnemyBase
     // Update is called once per frame
     void Update()
     {
+        sr.color = Color.Lerp(sr.color, Color.white, Time.deltaTime * 8f);
+
         timer -= Time.deltaTime;
         if (timer <= 0f)
         {
@@ -45,6 +47,12 @@ public class Snail : EnemyBase
 
         CheckWalls();
         rb.velocity = direction * speed;
+    }
+
+    public override void Damage(int dmg, Vector2 knockback)
+    {
+        sr.color = Color.red;
+        base.Damage(dmg, knockback);
     }
 
     void CheckWalls()
