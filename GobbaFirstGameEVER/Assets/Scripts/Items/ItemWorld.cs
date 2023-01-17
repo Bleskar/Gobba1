@@ -39,6 +39,10 @@ public class ItemWorld : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         PlayerInventory pi = collision.GetComponent<PlayerInventory>();
-        if (pi) pi.PickUpItem(this);
+        if (pi)
+        {
+            pi.PickUpItem(this);
+            Destroy(gameObject);
+        }
     }
 }

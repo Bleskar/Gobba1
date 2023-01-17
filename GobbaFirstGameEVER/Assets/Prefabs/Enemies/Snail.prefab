@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76cea1cdd766b8c48b8f9ebcff58e1c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
+  maxHealth: 30
   startPosition: {x: 0, y: 0, z: 0}
   speed: 1
   walkTimeMin: 3

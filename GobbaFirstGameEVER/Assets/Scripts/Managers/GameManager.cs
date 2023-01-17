@@ -16,5 +16,21 @@ public class GameManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
+
+        Physics2D.IgnoreLayerCollision(enemyLayer, enemyLayer);
+    }
+
+    [Header("Item")]
+    [SerializeField] ItemWorld itemPrefab;
+
+    [Header("Layers")]
+    [SerializeField] LayerMask enemyLayer;
+
+    public ItemWorld SpawnItem(Vector3 position, ItemBase item, Room parentRoom)
+    {
+        ItemWorld clone = Instantiate(itemPrefab, position, Quaternion.identity);
+        clone.item = item;
+        clone.transform.parent = parentRoom.transform;
+        return clone;
     }
 }

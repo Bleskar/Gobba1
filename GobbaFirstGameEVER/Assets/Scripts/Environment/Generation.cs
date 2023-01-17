@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Generation : MonoBehaviour
 {
+    [Header("Rooms")]
     [SerializeField] Room startRoom;
     [SerializeField] Room[] roomPrefabs = new Room[0];
 
@@ -13,6 +14,10 @@ public class Generation : MonoBehaviour
     [SerializeField] Room bossRoom;
 
     List<Room> dungeon = new List<Room>();
+
+    [Header("Items")]
+    [SerializeField] [Range(0f, 1f)] float dropChance;
+    [SerializeField] DropTable<ItemBase> itemDrops = new DropTable<ItemBase>();
 
     public void Start()
     {
@@ -127,7 +132,14 @@ public class Generation : MonoBehaviour
 
     Room CreateNewRoom(Vector3 position, Room prefab)
     {
-        return Instantiate(prefab, position, Quaternion.identity);
+        Room r = Instantiate(prefab, position, Quaternion.identity);
+        
+        if (Random.value <= dropChance)
+        {
+            r.itemDrop = itemDrops.Drop();
+        }
+
+        return r;
     }
 
     Door GetDoorFromRoom(Room r)

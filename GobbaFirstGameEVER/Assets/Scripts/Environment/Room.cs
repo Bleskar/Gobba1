@@ -21,10 +21,8 @@ public class Room : MonoBehaviour
     [SerializeField] Transform objectsParent;
 
     [Header("Items")]
-    [SerializeField] [Range(0f, 1f)] float dropChance;
-    [SerializeField] DropTable<ItemBase> itemDrops = new DropTable<ItemBase>();
+    public ItemBase itemDrop;
     [SerializeField] Transform dropArea;
-    [SerializeField] ItemWorld itemPrefab;
     bool enemiesKilled;
 
     //current mobs and breakable objects
@@ -50,6 +48,7 @@ public class Room : MonoBehaviour
 
     private void Update()
     {
+        currentEnemies.RemoveAll(e => !e);
         if (!enemiesKilled && currentEnemies.Count <= 0)
         {
             enemiesKilled = true;
@@ -59,16 +58,8 @@ public class Room : MonoBehaviour
 
     void RoomCleared()
     {
-        float dc = Random.Range(0f, 1f);
-        if (dc < dropChance)
-            DropTreasure();
-    }
-
-    void DropTreasure()
-    {
-        ItemBase drop = itemDrops.Drop();
-        ItemWorld clone = Instantiate(itemPrefab, dropArea.position, Quaternion.identity);
-        clone.item = drop;
+        if (itemDrop)
+            GameManager.Instance.SpawnItem(dropArea.position, itemDrop, this);
     }
 
     private void OnDrawGizmos()
@@ -149,6 +140,8 @@ public class Room : MonoBehaviour
     {
         foreach (EnemyBase e in currentEnemies)
         {
+            if (!e) continue;
+
             e.RoomEnter();
         }
     }
