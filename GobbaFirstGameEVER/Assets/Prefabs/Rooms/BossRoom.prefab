@@ -14987,11 +14987,9 @@ MonoBehaviour:
   maxRemoveObjects: 0
   minRemoveObjects: 0
   objectsParent: {fileID: 6013035331327165078}
-  dropChance: 0
-  itemDrops:
-    items: []
+  noDrops: 1
+  itemDrop: {fileID: 0}
   dropArea: {fileID: 2152042925487294728}
-  itemPrefab: {fileID: 7391053110124235872, guid: a65a5bb4da9273b41810acc2afccccc9, type: 3}
 --- !u!1 &8617681430114692365
 GameObject:
   m_ObjectHideFlags: 0

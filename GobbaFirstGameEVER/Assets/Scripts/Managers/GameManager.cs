@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] ItemWorld itemPrefab;
 
     [Header("Layers")]
-    [SerializeField] LayerMask enemyLayer;
+    [SerializeField] int enemyLayer;
 
     public ItemWorld SpawnItem(Vector3 position, ItemBase item, Room parentRoom)
     {

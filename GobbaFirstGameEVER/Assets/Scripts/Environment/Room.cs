@@ -21,7 +21,8 @@ public class Room : MonoBehaviour
     [SerializeField] Transform objectsParent;
 
     [Header("Items")]
-    public ItemBase itemDrop;
+    [SerializeField] bool noDrops;
+    [HideInInspector] public ItemBase itemDrop;
     [SerializeField] Transform dropArea;
     bool enemiesKilled;
 
@@ -58,7 +59,7 @@ public class Room : MonoBehaviour
 
     void RoomCleared()
     {
-        if (itemDrop)
+        if (itemDrop && !noDrops)
             GameManager.Instance.SpawnItem(dropArea.position, itemDrop, this);
     }
 

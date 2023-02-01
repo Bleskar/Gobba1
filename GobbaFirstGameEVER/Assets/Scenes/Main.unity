@@ -402,9 +402,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemPrefab: {fileID: 7391053110124235872, guid: a65a5bb4da9273b41810acc2afccccc9, type: 3}
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 32768
+  enemyLayer: 15
 --- !u!4 &1922392233
 Transform:
   m_ObjectHideFlags: 0
