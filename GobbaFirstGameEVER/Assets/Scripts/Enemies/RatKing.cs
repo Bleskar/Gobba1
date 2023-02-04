@@ -14,12 +14,12 @@ public class RatKing : EnemyBase
     void Start()
     {
         Initialize();
+        StartCoroutine(Phases());
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        sr.flipX = PlayerMovement.Instance.transform.position.x < transform.position.x;
     }
 
     IEnumerator Phases()
@@ -27,19 +27,35 @@ public class RatKing : EnemyBase
         alive = true;
         while (alive)
         {
-            for (int i = 0; i < Random.Range(3, 6); i++)
+            PlayAnimation("Walk");
+            float timer = Random.Range(3f, 5f);
+            while (timer > 0f)
+            {
+                timer -= Time.deltaTime;
+
+                Vector2 dir = ((Vector2)PlayerMovement.Instance.transform.position - (Vector2)transform.position).normalized;
+                rb.velocity = dir * speed;
+
+                yield return null;
+            }
+
+            rb.velocity = Vector2.zero;
+
+            PlayAnimation("Idle");
+            yield return new WaitForSeconds(1f);
+
+            PlayAnimation("Summon");
+
+            for (int i = 0; i < Random.Range(3, 4); i++)
             {
                 yield return new WaitForSeconds(.5f);
 
-                Vector2 dir = ((Vector2)PlayerMovement.Instance.transform.position - (Vector2)transform.position).normalized;
-                Shoot(dir);
-                Shoot(dir + Vector2.Perpendicular(dir));
-                Shoot(dir - Vector2.Perpendicular(dir));
+                AudioManager.Play("Summon");
+                Shoot();
             }
 
+            PlayAnimation("Idle");
             yield return new WaitForSeconds(1f);
-
-            direction = Random.insideUnitCircle.normalized;
         }
     }
 
@@ -50,9 +66,10 @@ public class RatKing : EnemyBase
         base.Kill();
     }
 
-    public void Shoot(Vector2 dir)
+    public void Shoot()
     {
         Projectile clone = Instantiate(ratling, transform.position, Quaternion.identity);
-        clone.direction = dir.normalized;
+        clone.transform.position += (Vector3)(Random.insideUnitCircle.normalized) * 3f;
+        clone.transform.position += Vector3.back * 3f;
     }
 }

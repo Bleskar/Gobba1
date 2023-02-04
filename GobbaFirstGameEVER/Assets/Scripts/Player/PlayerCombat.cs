@@ -90,6 +90,8 @@ public class PlayerCombat : MonoBehaviour, IKillable
 
     IEnumerator Attack()
     {
+        AudioManager.Play("Slash");
+
         Attacking = true;
         Vector3 direction = MouseDirection.normalized;
         direction.z = 0f;

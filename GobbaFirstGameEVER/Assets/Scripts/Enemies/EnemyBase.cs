@@ -34,6 +34,8 @@ public abstract class EnemyBase : MonoBehaviour, IKillable
 
     public virtual void Damage(int dmg, Vector2 knockback)
     {
+        AudioManager.Play("Hurt");
+
         Health -= dmg;
         if (Health <= 0)
             Kill();
