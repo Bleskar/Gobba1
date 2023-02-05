@@ -98,6 +98,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8da38aa16dbd1e04da2feffed660e48d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetLayers:
+    serializedVersion: 2
+    m_Bits: 16576
   direction: {x: 0, y: 0, z: 0}
   speed: 9
   damage: 5

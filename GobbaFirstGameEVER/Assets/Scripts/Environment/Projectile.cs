@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    [SerializeField] LayerMask targetLayers;
+
     public Vector3 direction;
     public float speed = 20f;
     public int damage;
@@ -22,7 +24,7 @@ public class Projectile : MonoBehaviour
 
     public void Travel()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction.normalized, speed * Time.deltaTime);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction.normalized, speed * Time.deltaTime, targetLayers);
         if (hit)
         {
             transform.position = hit.point;

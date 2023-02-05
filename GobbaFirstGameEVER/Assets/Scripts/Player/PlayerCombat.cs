@@ -8,6 +8,8 @@ public class PlayerCombat : MonoBehaviour, IKillable
     public PlayerMovement Movement { get; private set; }
     public PlayerInventory Inventory { get; private set; }
 
+    PlayerAnimation anim;
+
     [Header("Player Stats")]
     [SerializeField] int initMaxHealth = 100;
     int MaxHealth
@@ -66,6 +68,8 @@ public class PlayerCombat : MonoBehaviour, IKillable
 
     private void Start()
     {
+        anim = GetComponent<PlayerAnimation>();
+
         health = MaxHealth;
         slashSprite = slashAnimation.GetComponent<SpriteRenderer>();
         sr = GetComponent<SpriteRenderer>();
@@ -94,6 +98,7 @@ public class PlayerCombat : MonoBehaviour, IKillable
 
         Attacking = true;
         Vector3 direction = MouseDirection.normalized;
+        anim.lastDirection = direction;
         direction.z = 0f;
         direction.Normalize();
 

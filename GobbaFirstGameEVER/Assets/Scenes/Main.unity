@@ -292,7 +292,7 @@ MonoBehaviour:
   - name: Break Box
     source: {fileID: 0}
     clip: {fileID: 8300000, guid: d43d400690ff9814b9e4e04e3512e82c, type: 3}
-    volume: 1
+    volume: 0.75
     pitch: 1
     pitchRandom: 0.25
   - name: Slash

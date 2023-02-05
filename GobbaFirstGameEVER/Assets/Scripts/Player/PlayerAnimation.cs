@@ -4,16 +4,20 @@ using UnityEngine;
 
 public class PlayerAnimation : MonoBehaviour
 {
+    PlayerCombat combat; 
+
     SpriteRenderer sr;
     
     Animator anim;
     string currentAnimation;
 
-    Vector2 lastDirection;
+    [HideInInspector] public Vector2 lastDirection;
 
     // Start is called before the first frame update
     void Start()
     {
+        combat = GetComponent<PlayerCombat>();
+
         sr = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
     }
@@ -21,7 +25,14 @@ public class PlayerAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Play(GetNormalAnimation());
+        if (!combat.Attacking)
+        {
+            Play(GetNormalAnimation());
+        }
+        else
+        {
+            Play(DirectionToString() + "Attack");
+        }
     }
 
     string GetNormalAnimation()
@@ -36,18 +47,23 @@ public class PlayerAnimation : MonoBehaviour
             a = "Walk";
         }
 
-        if (lastDirection.x != 0f)
+        a = DirectionToString() + a;
+
+        return a;
+    }
+
+    public string DirectionToString()
+    {
+        string a = "Up";
+
+        if (lastDirection.x != 0f && Mathf.Abs(lastDirection.x) > Mathf.Abs(lastDirection.y))
         {
             sr.flipX = lastDirection.x < 0f;
-            a = "Side" + a;
+            a = "Side";
         }
         else if (lastDirection.y < 0f)
         {
-            a = "Down" + a;
-        }
-        else
-        {
-            a = "Up" + a;
+            a = "Down";
         }
 
         return a;
