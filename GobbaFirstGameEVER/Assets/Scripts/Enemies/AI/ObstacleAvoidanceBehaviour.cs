@@ -45,6 +45,7 @@ public class ObstacleAvoidanceBehaviour : SteeringBehaviour
 
         return (danger, interest);
     }
+    //Visar vilka hinder som upptäcks
     private void OnDrawGizmos()
     {
         if (showGizmo == false)

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5825197432842025515}
   - component: {fileID: 5825197432842025512}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: ObstacleDetector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5825197432984187851}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Detector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,8 +97,8 @@ GameObject:
   - component: {fileID: 5825197433061317318}
   - component: {fileID: 5825197433061317312}
   - component: {fileID: 5825197433061317313}
-  m_Layer: 0
-  m_Name: TestBowEnemy
+  m_Layer: 15
+  m_Name: BowEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -112,8 +112,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5825197433061317321}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.18, y: 0.35, z: -0.08875273}
-  m_LocalScale: {x: 1, y: 1, z: -0.98}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5825197432984187851}
@@ -185,6 +185,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8d8adad57ed3d34984ee81b31e8e09d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 30
+  startPosition: {x: 0, y: 0, z: 0}
   acceleration: 50
   deacceleration: 50
   topSpeed: 1
@@ -200,13 +202,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 725f75de804f8344bb0022de453fcbb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 155428016594377769, guid: 07b82b5cc2c43514eb0b107e5b1e9e29, type: 3}
+  projectile: {fileID: 6876121231700349713, guid: 07b82b5cc2c43514eb0b107e5b1e9e29, type: 3}
   damage: 1
   force: 100
   attackOffset: 1
   playerLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
 --- !u!114 &5825197433061317319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,9 +245,9 @@ MonoBehaviour:
   aiData: {fileID: 5825197433061317319}
   detectionDelay: 0.05
   aiUpdateDelay: 0.06
-  attackDelay: 1
+  attackDelay: 0.5
   attackDistance: 7
-  attackMinDistance: 5
+  attackMinDistance: 3
   OnAttackPressed:
     m_PersistentCalls:
       m_Calls:
@@ -350,7 +352,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5825197433205058295}
   - component: {fileID: 5825197433205058294}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: SeekBehaviour
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -396,7 +398,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5825197433227710040}
   - component: {fileID: 5825197433227710043}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: ContextSolver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -441,7 +443,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5825197433772747122}
   - component: {fileID: 5825197433772747123}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: ObstacleAvoider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -487,7 +489,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5825197433963685498}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Behaviour
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -522,7 +524,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5825197434076051282}
   - component: {fileID: 5825197434076051285}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: TargetDetector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -556,7 +558,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4c76382ac18ff643a681601f18b1f6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetDetectionRange: 12
+  targetDetectionRange: 15
   obstaclesLayerMask:
     serializedVersion: 2
     m_Bits: 16576

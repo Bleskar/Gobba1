@@ -610,7 +610,7 @@ MonoBehaviour:
   locked: 0
   spawnableMobs:
     items:
-    - item: {fileID: 505126333122630308, guid: fa69d67c0f52b3746a727cd6011a239d, type: 3}
+    - item: {fileID: 5825197433061317317, guid: 05a64b57005b3f44a8dc219eae194c07, type: 3}
       weight: 1
       min: 0
   spawnPositionsParent: {fileID: 6302455396778691909}
@@ -619,11 +619,9 @@ MonoBehaviour:
   maxRemoveObjects: 10
   minRemoveObjects: 5
   objectsParent: {fileID: 592483883696729445}
-  dropChance: 0
-  itemDrops:
-    items: []
+  noDrops: 0
+  itemDrop: {fileID: 0}
   dropArea: {fileID: 8272194878852487707}
-  itemPrefab: {fileID: 7391053110124235872, guid: a65a5bb4da9273b41810acc2afccccc9, type: 3}
 --- !u!1 &3229745790846321406
 GameObject:
   m_ObjectHideFlags: 0

@@ -19,12 +19,11 @@ public class EnemyBowScript : MonoBehaviour
     }
     void Shoot(Vector3 direction)
     {
-        Debug.Log("skjuter mfer");
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
         GameObject arrow = Instantiate(projectile, (transform.position + direction * attackOffset), q);
 
-        Rigidbody2D rb = arrow.GetComponent<Rigidbody2D>();
-        rb.AddForce(direction * force);
+        Projectile Pr = arrow.GetComponent<Projectile>();
+        Pr.direction = direction;
     }
 }

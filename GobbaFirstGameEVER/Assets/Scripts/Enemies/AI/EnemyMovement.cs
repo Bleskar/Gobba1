@@ -2,19 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMovement : MonoBehaviour
+public class EnemyMovement : EnemyBase
 {
     [Header("Options")]
     [SerializeField] float acceleration = 50f;
     [SerializeField] float deacceleration = 50f;
     [SerializeField] float topSpeed = 8f;
 
-    Rigidbody2D rb;
-
-    // Start is called before the first frame update
-    void Start()
+    private void Update()
     {
-        rb = GetComponent<Rigidbody2D>();
+        sr.color = Color.Lerp(sr.color, Color.white, Time.deltaTime * 8f);
     }
 
     public void Movement(float x, float y) => Movement(new Vector2(x, y));
@@ -36,5 +33,10 @@ public class EnemyMovement : MonoBehaviour
 
         if (rb.velocity.normalized != direction)
             rb.velocity = Vector2.zero;
+    }
+    public override void Damage(int dmg, Vector2 knockback)
+    {
+        sr.color = Color.red;
+        base.Damage(dmg, knockback);
     }
 }

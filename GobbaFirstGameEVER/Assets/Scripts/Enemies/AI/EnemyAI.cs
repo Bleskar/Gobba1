@@ -66,7 +66,6 @@ public class EnemyAI : MonoBehaviour
     {
         if (aiData.currentTarget == null)
         {
-            Debug.Log("Stopped");
             movementInput = Vector2.zero;
             following = false;
             yield return null;

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5825197432842025515}
   - component: {fileID: 5825197432842025512}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: ObstacleDetector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5825197432984187851}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Detector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 5825197433061317318}
   - component: {fileID: 5825197433061317312}
   - component: {fileID: 5825197433061317313}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: TestEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,8 +112,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5825197433061317321}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.18, y: 0.35, z: -0.08875273}
-  m_LocalScale: {x: 1, y: 1, z: -0.98}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5825197432984187851}
@@ -185,6 +185,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8d8adad57ed3d34984ee81b31e8e09d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 30
+  startPosition: {x: 0, y: 0, z: 0}
   acceleration: 50
   deacceleration: 50
   topSpeed: 1
@@ -202,7 +204,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   attackRadius: 0.66
-  attackOffset: 0.35
+  attackOffset: 0.17
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -243,7 +245,7 @@ MonoBehaviour:
   detectionDelay: 0.05
   aiUpdateDelay: 0.06
   attackDelay: 1
-  attackDistance: 2
+  attackDistance: 1
   attackMinDistance: 0
   OnAttackPressed:
     m_PersistentCalls:
@@ -349,7 +351,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5825197433205058295}
   - component: {fileID: 5825197433205058294}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: SeekBehaviour
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -395,7 +397,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5825197433227710040}
   - component: {fileID: 5825197433227710043}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: ContextSolver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -440,7 +442,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5825197433772747122}
   - component: {fileID: 5825197433772747123}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: ObstacleAvoider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -486,7 +488,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5825197433963685498}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Behaviour
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -521,7 +523,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5825197434076051282}
   - component: {fileID: 5825197434076051285}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: TargetDetector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
