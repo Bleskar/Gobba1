@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class EnemyBase : MonoBehaviour, IKillable
 {
     [Header("Stats")]
-    [SerializeField] int maxHealth = 5;
+    public int maxHealth = 5;
 
     public int Health { get; private set; }
 
