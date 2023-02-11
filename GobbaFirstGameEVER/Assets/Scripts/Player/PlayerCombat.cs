@@ -8,7 +8,10 @@ public class PlayerCombat : MonoBehaviour, IKillable
     public PlayerMovement Movement { get; private set; }
     public PlayerInventory Inventory { get; private set; }
 
+    Camera cam;
+
     PlayerAnimation anim;
+
 
     [Header("Player Stats")]
     [SerializeField] int initMaxHealth = 100;
@@ -68,6 +71,7 @@ public class PlayerCombat : MonoBehaviour, IKillable
 
     private void Start()
     {
+        cam = Camera.main;
         anim = GetComponent<PlayerAnimation>();
 
         health = MaxHealth;
@@ -131,7 +135,11 @@ public class PlayerCombat : MonoBehaviour, IKillable
         for (int i = 0; i < cda.Length; i++)
         {
             IKillable ik = cda[i].GetComponent<IKillable>();
-            if (ik != null) ik.Damage(Holding.damage, direction);
+            if (ik != null) 
+            {
+                cam.GetComponent<CameraShaker>().Shake();
+                ik.Damage(Holding.damage, direction);  
+            }
         }
     }
 

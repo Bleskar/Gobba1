@@ -32,10 +32,13 @@ public class EnemyAI : MonoBehaviour
     private ContextSolver movementDirectionSolver;
 
     bool following = false;
+    private void OnEnable()
+    {
+        InvokeRepeating("PerformDetection", 0, detectionDelay);
+    }
 
     private void Start()
     {
-        InvokeRepeating("PerformDetection", 0, detectionDelay);
     }
     private void PerformDetection()
     {
