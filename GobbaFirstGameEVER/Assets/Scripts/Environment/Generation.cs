@@ -21,6 +21,7 @@ public class Generation : MonoBehaviour
 
     public void Start()
     {
+        itemDrops.Initialize();
         StartGeneration();
     }
 

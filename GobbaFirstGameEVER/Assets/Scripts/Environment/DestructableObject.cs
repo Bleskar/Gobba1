@@ -17,6 +17,8 @@ public class DestructableObject : MonoBehaviour, IKillable
     // Start is called before the first frame update
     void Start()
     {
+        dropPrefabs.Initialize();
+
         sr = GetComponent<SpriteRenderer>();
         cd = GetComponent<Collider2D>();
     }

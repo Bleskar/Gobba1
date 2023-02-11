@@ -32,6 +32,8 @@ public class Room : MonoBehaviour
     
     private void Awake()
     {
+        spawnableMobs.Initialize();
+
         for (int i = 0; i < doors.Length; i++)
         {
             doors[i].parentRoom = this;
