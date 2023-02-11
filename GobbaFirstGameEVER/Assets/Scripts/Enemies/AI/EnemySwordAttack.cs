@@ -60,8 +60,11 @@ public class EnemySwordAttack : MonoBehaviour
             IKillable ik = cda[i].GetComponent<IKillable>();
             if (ik != null)
             {
-                cam.GetComponent<CameraShaker>().Shake(); 
-                ik.Damage(damage, direction);
+                if (cda[i].gameObject != gameObject)
+                {
+                    cam.GetComponent<CameraShaker>().Shake();
+                    ik.Damage(damage, direction);
+                }
             }
         }
     }
