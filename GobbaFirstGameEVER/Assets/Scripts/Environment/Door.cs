@@ -6,6 +6,7 @@ public class Door : MonoBehaviour
 {
     public Room parentRoom;
     public Door connection;
+    public bool bossDoor;
 
     [Header("Refrences")]
     [SerializeField] SpriteRenderer doorRenderer;
@@ -13,6 +14,11 @@ public class Door : MonoBehaviour
     private void Start()
     {
         doorRenderer.gameObject.SetActive(connection);  
+    }
+
+    private void Update()
+    {
+        doorRenderer.color = bossDoor ? Color.red : Color.white;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

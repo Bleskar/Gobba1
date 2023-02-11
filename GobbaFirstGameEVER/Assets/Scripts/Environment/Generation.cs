@@ -61,6 +61,7 @@ public class Generation : MonoBehaviour
         pivot = GetRandomPivotFromIndex(dungeon.Count - 4, dungeon.Count);
 
         door = GetDoorFromRoom(pivot);
+        door.bossDoor = true;
         currentRoom = Instantiate(bossRoom, pivot.transform.position + door.transform.localPosition, Quaternion.identity);
 
         newDoor = GetDoorFromDoor(currentRoom, door);

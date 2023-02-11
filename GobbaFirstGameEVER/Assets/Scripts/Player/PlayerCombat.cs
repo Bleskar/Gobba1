@@ -15,7 +15,7 @@ public class PlayerCombat : MonoBehaviour, IKillable
 
     [Header("Player Stats")]
     [SerializeField] int initMaxHealth = 100;
-    int MaxHealth
+    public int MaxHealth
     {
         get
         {

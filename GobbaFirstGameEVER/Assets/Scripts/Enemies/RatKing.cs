@@ -40,19 +40,22 @@ public class RatKing : EnemyBase
             }
 
             rb.velocity = Vector2.zero;
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;
 
             PlayAnimation("Idle");
             yield return new WaitForSeconds(1f);
 
             PlayAnimation("Summon");
 
-            for (int i = 0; i < Random.Range(3, 4); i++)
+            for (int i = 0; i < Random.Range(6, 9); i++)
             {
                 yield return new WaitForSeconds(.5f);
 
                 AudioManager.Play("Summon");
                 Shoot();
             }
+
+            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
 
             PlayAnimation("Idle");
             yield return new WaitForSeconds(1f);
