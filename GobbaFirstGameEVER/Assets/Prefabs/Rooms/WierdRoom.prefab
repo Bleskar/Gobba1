@@ -88,6 +88,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentRoom: {fileID: 0}
   connection: {fileID: 0}
+  bossDoor: 0
   doorRenderer: {fileID: 4446821104214382670}
 --- !u!61 &4232769341941318676
 BoxCollider2D:
@@ -650,6 +651,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentRoom: {fileID: 0}
   connection: {fileID: 0}
+  bossDoor: 0
   doorRenderer: {fileID: 1038796202321680299}
 --- !u!61 &3914995836685457494
 BoxCollider2D:
@@ -701,7 +703,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3194228048921465180}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.72, y: -4.55, z: 0}
+  m_LocalPosition: {x: 3.148, y: -5.838, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4343,6 +4345,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentRoom: {fileID: 0}
   connection: {fileID: 0}
+  bossDoor: 0
   doorRenderer: {fileID: 7560766480043681428}
 --- !u!61 &2757603042001556991
 BoxCollider2D:
@@ -4480,6 +4483,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentRoom: {fileID: 0}
   connection: {fileID: 0}
+  bossDoor: 0
   doorRenderer: {fileID: 433896572684336652}
 --- !u!61 &9215172558224446970
 BoxCollider2D:

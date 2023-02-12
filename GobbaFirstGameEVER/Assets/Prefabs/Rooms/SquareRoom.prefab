@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentRoom: {fileID: 0}
   connection: {fileID: 0}
+  bossDoor: 0
   doorRenderer: {fileID: 2913825583728659351}
 --- !u!61 &1175910861449593962
 BoxCollider2D:
@@ -1585,6 +1586,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentRoom: {fileID: 0}
   connection: {fileID: 0}
+  bossDoor: 0
   doorRenderer: {fileID: 1996008817214063730}
 --- !u!61 &2069586548183832616
 BoxCollider2D:
@@ -2080,6 +2082,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentRoom: {fileID: 0}
   connection: {fileID: 0}
+  bossDoor: 0
   doorRenderer: {fileID: 5685876187055798952}
 --- !u!61 &18452079181105603
 BoxCollider2D:
@@ -2251,6 +2254,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentRoom: {fileID: 0}
   connection: {fileID: 0}
+  bossDoor: 0
   doorRenderer: {fileID: 2306113386043466288}
 --- !u!61 &6478333318371363270
 BoxCollider2D:
@@ -5438,7 +5442,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8090273710665210849, guid: 85b0473cc8d0de7488550313a790d8e3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.783058
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8090273710665210849, guid: 85b0473cc8d0de7488550313a790d8e3, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5500,7 +5504,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8090273710665210849, guid: 85b0473cc8d0de7488550313a790d8e3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.783058
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8090273710665210849, guid: 85b0473cc8d0de7488550313a790d8e3, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5996,7 +6000,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8090273710665210849, guid: 85b0473cc8d0de7488550313a790d8e3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.783058
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8090273710665210849, guid: 85b0473cc8d0de7488550313a790d8e3, type: 3}
       propertyPath: m_LocalRotation.w
