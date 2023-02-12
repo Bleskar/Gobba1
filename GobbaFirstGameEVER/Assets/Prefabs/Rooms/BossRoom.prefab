@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentRoom: {fileID: 0}
   connection: {fileID: 0}
+  bossDoor: 0
   doorRenderer: {fileID: 6809930252839837405}
 --- !u!61 &2839210878531466539
 BoxCollider2D:
@@ -10614,6 +10615,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentRoom: {fileID: 0}
   connection: {fileID: 0}
+  bossDoor: 0
   doorRenderer: {fileID: 3488324679335183941}
 --- !u!61 &9133511723845006638
 BoxCollider2D:
@@ -11123,6 +11125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentRoom: {fileID: 0}
   connection: {fileID: 0}
+  bossDoor: 0
   doorRenderer: {fileID: 7292015977809000607}
 --- !u!61 &7077944012266284229
 BoxCollider2D:
@@ -14338,6 +14341,26 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
+  - first: {x: -1, y: 14, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 11
+      m_TileSpriteIndex: 11
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: 0, y: 14, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 11
+      m_TileSpriteIndex: 11
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
   - first: {x: 1, y: 14, z: 0}
     second:
       serializedVersion: 2
@@ -14638,6 +14661,26 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
+  - first: {x: -1, y: 15, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 10
+      m_TileSpriteIndex: 10
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: 0, y: 15, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 10
+      m_TileSpriteIndex: 10
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
   - first: {x: 1, y: 15, z: 0}
     second:
       serializedVersion: 2
@@ -14810,9 +14853,9 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 11afc6148c578044a8ed3e8b7773ae91, type: 2}
   - m_RefCount: 23
     m_Data: {fileID: 11400000, guid: 0eb5f7cc01dc4d241ac8a5e1e21f8281, type: 2}
-  - m_RefCount: 12
+  - m_RefCount: 14
     m_Data: {fileID: 11400000, guid: ba4765924fc0963499982926f0da2f42, type: 2}
-  - m_RefCount: 12
+  - m_RefCount: 14
     m_Data: {fileID: 11400000, guid: 45b6680581568164baa7f3b2d720b210, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 8
@@ -14835,12 +14878,12 @@ Tilemap:
     m_Data: {fileID: -1401159918, guid: e824ec5000efc3146bcf296233e77e39, type: 3}
   - m_RefCount: 23
     m_Data: {fileID: 1487104939, guid: e824ec5000efc3146bcf296233e77e39, type: 3}
-  - m_RefCount: 12
+  - m_RefCount: 14
     m_Data: {fileID: 803622979, guid: e824ec5000efc3146bcf296233e77e39, type: 3}
-  - m_RefCount: 12
+  - m_RefCount: 14
     m_Data: {fileID: -837893581, guid: e824ec5000efc3146bcf296233e77e39, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 349
+  - m_RefCount: 353
     m_Data:
       e00: 1
       e01: 0
@@ -14859,7 +14902,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 349
+  - m_RefCount: 353
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -15213,6 +15256,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentRoom: {fileID: 0}
   connection: {fileID: 0}
+  bossDoor: 0
   doorRenderer: {fileID: 6264140369391728506}
 --- !u!61 &7985130795443075207
 BoxCollider2D:

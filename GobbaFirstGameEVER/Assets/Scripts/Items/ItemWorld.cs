@@ -42,7 +42,6 @@ public class ItemWorld : MonoBehaviour
         if (pi)
         {
             pi.PickUpItem(this);
-            Destroy(gameObject);
         }
     }
 }

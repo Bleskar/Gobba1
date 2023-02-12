@@ -10,11 +10,20 @@ public class RatKing : EnemyBase
 
     Vector2 direction;
 
+    bool initialized;
+
     // Start is called before the first frame update
     void Start()
     {
         Initialize();
         StartCoroutine(Phases());
+        initialized = true;
+    }
+
+    private void OnEnable()
+    {
+        if (initialized)
+            StartCoroutine(Phases());
     }
 
     private void Update()

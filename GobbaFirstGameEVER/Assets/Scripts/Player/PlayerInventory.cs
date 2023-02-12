@@ -29,7 +29,17 @@ public class PlayerInventory : MonoBehaviour
         if (item.item.GetType() == typeof(Weapon))
         {
             Weapon temp = (Weapon)item.item;
-            item.item = Holding;
+
+            if (Holding)
+            {
+                item.item = Holding;
+                item.ItemSlide();
+            }
+            else
+            {
+                Destroy(item.gameObject);
+            }
+
             EquipWeapon(temp);
 
             item.ItemSlide();
@@ -44,10 +54,14 @@ public class PlayerInventory : MonoBehaviour
     void EquipWeapon(Weapon w)
     {
         holding = w;
+
+        Title.Activate(w.name, w.description);
     }
 
     void EquipItem(StatItem s)
     {
         items.Add(s);
+
+        Title.Activate(s.name, s.description);
     }
 }
