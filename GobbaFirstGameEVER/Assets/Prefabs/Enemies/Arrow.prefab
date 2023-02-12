@@ -129,5 +129,5 @@ MonoBehaviour:
     m_Bits: 16448
   direction: {x: 0, y: 0, z: 0}
   speed: 20
-  damage: 0
+  damage: 10
   travelling: 1

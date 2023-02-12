@@ -426,7 +426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 062ec2b1b58569f499cfc3f5403d3223, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 10
   attackRadius: 0.66
   attackOffset: 0.17
   playerLayer:
@@ -775,6 +775,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetDetectionRange: 8.2
+  tooCloseRange: 0
   obstaclesLayerMask:
     serializedVersion: 2
     m_Bits: 16576

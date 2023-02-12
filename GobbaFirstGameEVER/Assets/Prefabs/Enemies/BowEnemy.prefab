@@ -206,7 +206,7 @@ MonoBehaviour:
   projectile: {fileID: 6876121231700349713, guid: 07b82b5cc2c43514eb0b107e5b1e9e29, type: 3}
   arrows: 0
   maxArrows: 3
-  damage: 1
+  damage: 10
   force: 100
   attackOffset: 1
   playerLayer:
