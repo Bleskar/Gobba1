@@ -12,6 +12,7 @@ public class PlayerCombat : MonoBehaviour, IKillable
 
     PlayerAnimation anim;
 
+    public bool controller;
 
     [Header("Player Stats")]
     [SerializeField] int initMaxHealth = 100;
@@ -61,9 +62,11 @@ public class PlayerCombat : MonoBehaviour, IKillable
 
     //used when attacking
     public Vector3 MouseDirection => (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized;
+    Vector3 direction;
 
     private void Awake()
     {
+        direction = new Vector2(1f,0f);
         Instance = this;
         Movement = GetComponent<PlayerMovement>();
         Inventory = GetComponent<PlayerInventory>();
@@ -95,13 +98,24 @@ public class PlayerCombat : MonoBehaviour, IKillable
 
         StartCoroutine(Attack());
     }
-
     IEnumerator Attack()
     {
         AudioManager.Play("Slash");
 
         Attacking = true;
-        Vector3 direction = MouseDirection.normalized;
+
+        if (!controller)
+        {
+            direction = MouseDirection.normalized;
+        }
+        else
+        {
+            Vector2 temp = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y")).normalized;
+            if (temp != Vector2.zero)
+            {
+                direction = temp;
+            }
+        }
         anim.lastDirection = direction;
         direction.z = 0f;
         direction.Normalize();

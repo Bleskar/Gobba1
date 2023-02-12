@@ -44,10 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c26b34bfde48d8841b7fbd3d0efc5ee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionRadius: 3.17
+  detectionRadius: 2
   layerMask:
     serializedVersion: 2
-    m_Bits: 49280
+    m_Bits: 49344
 --- !u!1 &5825197432984187850
 GameObject:
   m_ObjectHideFlags: 0
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 5825197433061317319}
   - component: {fileID: 5825197433061317318}
   - component: {fileID: 5825197433061317312}
-  - component: {fileID: 5825197433061317313}
+  - component: {fileID: 3386295227184622724}
   m_Layer: 15
   m_Name: BowEnemy
   m_TagString: Untagged
@@ -321,8 +321,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!61 &5825197433061317313
-BoxCollider2D:
+--- !u!58 &3386295227184622724
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -335,18 +335,8 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.015625, y: 1.015625}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Radius: 0.5078125
 --- !u!1 &5825197433205058297
 GameObject:
   m_ObjectHideFlags: 0
@@ -391,7 +381,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 013bcc42c5a02544aaa94f478d2ca6e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetRechedThreshold: 1
+  targetRechedThreshold: 0
   showGizmo: 1
 --- !u!1 &5825197433227710042
 GameObject:
@@ -564,6 +554,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetDetectionRange: 15
+  tooCloseRange: 3
   obstaclesLayerMask:
     serializedVersion: 2
     m_Bits: 16576

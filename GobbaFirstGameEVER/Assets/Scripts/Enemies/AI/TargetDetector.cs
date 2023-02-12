@@ -7,6 +7,8 @@ public class TargetDetector : Detector
     [SerializeField]
     private float targetDetectionRange = 5;
 
+    public float tooCloseRange;
+
     [SerializeField]
     private LayerMask obstaclesLayerMask, playerLayerMask;
 
@@ -29,8 +31,13 @@ public class TargetDetector : Detector
                 Debug.DrawRay(transform.position, direction * targetDetectionRange, Color.magenta);
                 colliders = new List<Transform>()
                 {
-                    playerCollider.transform
+                   playerCollider.transform
                 };
+                //if ((playerCollider.transform.position.magnitude - transform.position.magnitude) > tooCloseRange)
+                //{
+                    
+                //}
+                
             }
             else
             {

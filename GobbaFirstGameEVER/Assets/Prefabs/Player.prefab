@@ -240,6 +240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96e0fae0b9cc9e74cb88777dc03aa86e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controller: 0
   initMaxHealth: 100
   enemyLayer:
     serializedVersion: 2

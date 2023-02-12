@@ -348,63 +348,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 0.05
   scale: 0.2
---- !u!1001 &792764100
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5825197433061317315, guid: af2caaa1c500b5c4090ce5cd905ac1f4, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5825197433061317315, guid: af2caaa1c500b5c4090ce5cd905ac1f4, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -3.759693
-      objectReference: {fileID: 0}
-    - target: {fileID: 5825197433061317315, guid: af2caaa1c500b5c4090ce5cd905ac1f4, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.050335288
-      objectReference: {fileID: 0}
-    - target: {fileID: 5825197433061317315, guid: af2caaa1c500b5c4090ce5cd905ac1f4, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5825197433061317315, guid: af2caaa1c500b5c4090ce5cd905ac1f4, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5825197433061317315, guid: af2caaa1c500b5c4090ce5cd905ac1f4, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5825197433061317315, guid: af2caaa1c500b5c4090ce5cd905ac1f4, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5825197433061317315, guid: af2caaa1c500b5c4090ce5cd905ac1f4, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5825197433061317315, guid: af2caaa1c500b5c4090ce5cd905ac1f4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5825197433061317315, guid: af2caaa1c500b5c4090ce5cd905ac1f4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5825197433061317315, guid: af2caaa1c500b5c4090ce5cd905ac1f4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5825197433061317321, guid: af2caaa1c500b5c4090ce5cd905ac1f4, type: 3}
-      propertyPath: m_Name
-      value: SwordEnemy
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: af2caaa1c500b5c4090ce5cd905ac1f4, type: 3}
 --- !u!1 &869929827
 GameObject:
   m_ObjectHideFlags: 0
@@ -471,7 +414,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &944427613
 GameObject:
@@ -491,7 +434,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &944427614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -568,7 +511,7 @@ RectTransform:
   - {fileID: 2104167308}
   - {fileID: 1159824876}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -750,7 +693,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1453548078
 GameObject:
@@ -23729,7 +23672,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1922392231
 GameObject:
@@ -23775,7 +23718,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2104167307
 GameObject:
@@ -23879,9 +23822,13 @@ PrefabInstance:
       propertyPath: CShaker
       value: 
       objectReference: {fileID: 519420035}
+    - target: {fileID: 1630959845997650173, guid: 08cbb5d2fb9be5745b7d11a638be0293, type: 3}
+      propertyPath: controller
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5534197356667521009, guid: 08cbb5d2fb9be5745b7d11a638be0293, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5534197356667521009, guid: 08cbb5d2fb9be5745b7d11a638be0293, type: 3}
       propertyPath: m_LocalPosition.x
