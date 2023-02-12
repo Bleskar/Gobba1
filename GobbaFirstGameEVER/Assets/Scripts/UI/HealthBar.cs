@@ -12,6 +12,6 @@ public class HealthBar : MonoBehaviour
     void Update()
     {
         bar.sizeDelta = new Vector2(((float)PlayerCombat.Instance.Health / PlayerCombat.Instance.MaxHealth) * (parent.sizeDelta.x - 11f), 100f);
-        bar.anchoredPosition = Vector2.right * bar.sizeDelta.x * .5f;
+        bar.anchoredPosition = Vector2.right * (6.5f + bar.sizeDelta.x * .5f);
     }
 }
