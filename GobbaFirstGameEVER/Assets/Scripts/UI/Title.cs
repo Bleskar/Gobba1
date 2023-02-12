@@ -31,7 +31,7 @@ public class Title : MonoBehaviour
     public void StartFade(string title, string subTitle)
     {
         this.title.text = title;
-        this.subTitle.text = title;
+        this.subTitle.text = subTitle;
 
         StartCoroutine(TitleFade());
     }
