@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class Chest : MonoBehaviour
 {
-    
-
-    // Start is called before the first frame update
-    void Start()
+    public ItemBase item;
+    public Room room;
+    bool chestOpened = false;
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (chestOpened || !collision.GetComponent<PlayerMovement>())
+        {
+            return;
+        }
+        chestOpened = true;
+        ItemWorld itm = GameManager.Instance.SpawnItem(transform.position, item, room);
+        itm.gameObject.transform.parent = this.transform;
     }
 }

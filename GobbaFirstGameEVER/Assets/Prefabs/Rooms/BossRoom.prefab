@@ -15072,6 +15072,7 @@ MonoBehaviour:
   noDrops: 1
   itemDrop: {fileID: 0}
   dropArea: {fileID: 2152042925487294728}
+  _Chest: {fileID: 6730956174370988627, guid: 1406e2c30a4c1514eb5a006af705f080, type: 3}
 --- !u!1 &8617681430114692365
 GameObject:
   m_ObjectHideFlags: 0

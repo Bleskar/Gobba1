@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentRoom: {fileID: 0}
   connection: {fileID: 0}
+  bossDoor: 0
   doorRenderer: {fileID: 4501359719692441452}
 --- !u!61 &4139814803801508662
 BoxCollider2D:
@@ -493,6 +494,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentRoom: {fileID: 0}
   connection: {fileID: 0}
+  bossDoor: 0
   doorRenderer: {fileID: 983131961348659337}
 --- !u!61 &3862567940463826804
 BoxCollider2D:
@@ -629,6 +631,7 @@ MonoBehaviour:
   noDrops: 0
   itemDrop: {fileID: 0}
   dropArea: {fileID: 8272194878852487707}
+  _Chest: {fileID: 6730956174370988627, guid: 1406e2c30a4c1514eb5a006af705f080, type: 3}
 --- !u!1 &3229745790846321406
 GameObject:
   m_ObjectHideFlags: 0
@@ -16771,6 +16774,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentRoom: {fileID: 0}
   connection: {fileID: 0}
+  bossDoor: 0
   doorRenderer: {fileID: 7720154808342194614}
 --- !u!61 &2705180890860329693
 BoxCollider2D:
@@ -40213,6 +40217,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentRoom: {fileID: 0}
   connection: {fileID: 0}
+  bossDoor: 0
   doorRenderer: {fileID: 417638812357128494}
 --- !u!61 &8947698586775771864
 BoxCollider2D:

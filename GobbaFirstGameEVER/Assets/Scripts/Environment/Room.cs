@@ -26,6 +26,8 @@ public class Room : MonoBehaviour
     [SerializeField] Transform dropArea;
     bool enemiesKilled;
 
+    public GameObject _Chest;
+
     //current mobs and breakable objects
     List<GameObject> currentBreakableObjects = new List<GameObject>();
     List<EnemyBase> currentEnemies = new List<EnemyBase>();
@@ -62,7 +64,12 @@ public class Room : MonoBehaviour
     void RoomCleared()
     {
         if (itemDrop && !noDrops)
-            GameManager.Instance.SpawnItem(dropArea.position, itemDrop, this);
+        {
+            GameObject obj = Instantiate(_Chest, dropArea.position, Quaternion.identity);
+            Chest chest = obj.GetComponent<Chest>();
+            chest.item = itemDrop;
+            chest.room = this;
+        }
     }
 
     private void OnDrawGizmos()
