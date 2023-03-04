@@ -13,6 +13,8 @@ public class PlayerAnimation : MonoBehaviour
 
     [HideInInspector] public Vector2 lastDirection;
 
+    public bool Animating => !PlayerCombat.Instance.Dead && !PlayerCombat.Instance.Damaged;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +27,9 @@ public class PlayerAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!Animating)
+            return;
+
         if (!combat.Attacking)
         {
             Play(GetNormalAnimation());
@@ -69,7 +74,7 @@ public class PlayerAnimation : MonoBehaviour
         return a;
     }
 
-    void Play(string a)
+    public void Play(string a)
     {
         if (a == currentAnimation)
             return;

@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     float DashTime => dashLength / dashSpeed;
     public bool Dashing { get; private set; }
 
-    public bool Frozen => roomTransition || Dashing;
+    public bool Frozen => roomTransition || Dashing || PlayerCombat.Instance.Dead || PlayerCombat.Instance.Damaged;
     public bool roomTransition;
 
     Rigidbody2D rb;
@@ -35,6 +35,8 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
+
+        Title.Activate($"Level {GameManager.Instance.CurrentLevel}");
     }
 
     // Update is called once per frame
@@ -78,6 +80,7 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator Dash(Vector2 direction)
     {
+        AudioManager.Play("Dash");
         Dashing = true;
 
         float timer = 0f;

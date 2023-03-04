@@ -11,22 +11,29 @@ public class Title : MonoBehaviour
     [SerializeField] Text title;
     [SerializeField] Text subTitle;
     [SerializeField] Image background;
+    [SerializeField] Text singleTitle;
+    [SerializeField] Image singleBackground;
 
     [Header("Fade options")]
     [SerializeField] float stayTime = .5f;
     [SerializeField] float fadeTime = .5f;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         Instance = this;
         ResetTitle();
+    }
+
+    public static void Activate(string title)
+    {
+        Instance.StartSingleFade(title);
     }
 
     public static void Activate(string title, string subTitle)
     {
         Instance.StartFade(title, subTitle);
     }
+
 
     public void StartFade(string title, string subTitle)
     {
@@ -62,10 +69,43 @@ public class Title : MonoBehaviour
         ResetTitle();
     }
 
+    public void StartSingleFade(string title)
+    {
+        singleTitle.text = title;
+
+        StartCoroutine(SingleTitleFade());
+    }
+
+    IEnumerator SingleTitleFade()
+    {
+        singleTitle.color = Color.white;
+
+        singleBackground.color = new Color(0f, 0f, 0f, .5f);
+
+        yield return new WaitForSeconds(stayTime);
+
+        float timer = fadeTime;
+        while (timer > 0f)
+        {
+            Color c = Color.Lerp(Color.clear, Color.white, timer / fadeTime);
+
+            singleTitle.color = c;
+            singleBackground.color = new Color(0f, 0f, 0f, .5f * c.a);
+
+            timer -= Time.deltaTime;
+            yield return null;
+        }
+
+        ResetTitle();
+    }
+
     void ResetTitle()
     {
         background.color = Color.clear;
         title.color = Color.clear;
         subTitle.color = Color.clear;
+
+        singleTitle.color = Color.clear;
+        singleBackground.color = Color.clear;
     }
 }
