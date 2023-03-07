@@ -56,7 +56,13 @@ public class PlayerCombat : MonoBehaviour, IKillable
     public Weapon Holding => Inventory?.Holding;
 
     public bool Attacking { get; private set; }
-    public bool CanAttack => !Movement.Frozen && !Attacking;
+    public bool CanAttack => !Movement.Frozen && !Attacking && !Dead && !Damaged;
+
+    public bool Dead { get; private set; }
+
+    float damageTimer;
+    float iTime;
+    public bool Damaged => damageTimer > 0f;
 
     Rigidbody2D rb;
 
@@ -85,7 +91,12 @@ public class PlayerCombat : MonoBehaviour, IKillable
 
     private void Update()
     {
-        sr.color = Color.Lerp(sr.color, Color.white, Time.deltaTime);
+        if (damageTimer > 0f)
+            damageTimer -= Time.deltaTime;
+        else if (iTime > 0f)
+            iTime -= Time.deltaTime;
+
+        sr.color = Color.Lerp(sr.color, Color.white, Time.deltaTime * 8f);
 
         if (Input.GetButtonDown("Fire1"))
             StartAttack();
@@ -168,9 +179,18 @@ public class PlayerCombat : MonoBehaviour, IKillable
 
     public void Damage(int dmg, Vector2 knock)
     {
+        if (iTime > 0f || Health <= 0)
+            return;
+
         Health -= dmg;
         sr.color = Color.red;
         rb.velocity = knock.normalized * 5f;
+
+        AudioManager.Play("PlayerHurt");
+
+        anim.Play("Damage");
+        damageTimer = .2f;
+        iTime = .2f;
 
         if (Health <= 0)
             Kill();
@@ -178,6 +198,12 @@ public class PlayerCombat : MonoBehaviour, IKillable
 
     public void Kill()
     {
-        print("Player dieded!!!! OH NO!!! :'(");
+        if (Dead)
+            return;
+
+        anim.Play("Death");
+        rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        Dead = true;
+        DeathMenu.Instance.Activate();
     }
 }

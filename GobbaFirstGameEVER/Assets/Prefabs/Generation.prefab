@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6311471208473469091
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6311471208473469093}
+  - component: {fileID: 6311471208473469092}
+  m_Layer: 0
+  m_Name: Generation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6311471208473469093
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6311471208473469091}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6311471208473469092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6311471208473469091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98000fcfe4169dd4dbaa4c9c95f73d8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startRoom: {fileID: 5346099581213709444, guid: f7c5ab3609c616f48bd46c31924011bb, type: 3}
+  roomPrefabs:
+  - {fileID: 1145502880654822734, guid: e8be1358543f65c4390d0b16ece100b9, type: 3}
+  - {fileID: 1959574097240032008, guid: b9db69ffff238614eaab507e45cb6900, type: 3}
+  - {fileID: 3017644328393707890, guid: b6231ac72df863e41b18b7e1b130e1e5, type: 3}
+  - {fileID: 3039526693687303760, guid: 3f1b8fbcd73313e40bc02f534cd2ecab, type: 3}
+  rooms: 5
+  extraRooms: 3
+  bossRoom: {fileID: 8170913291960234403, guid: b68c1f730da8015428efc29e76c090e0, type: 3}
+  dropChance: 1
+  itemDrops:
+    items:
+    - item: {fileID: 11400000, guid: 4ec7bac9dde27b54996f536c00b162fd, type: 2}
+      weight: 1
+      min: 0

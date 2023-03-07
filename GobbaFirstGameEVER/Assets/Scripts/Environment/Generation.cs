@@ -8,8 +8,8 @@ public class Generation : MonoBehaviour
     [SerializeField] Room startRoom;
     [SerializeField] Room[] roomPrefabs = new Room[0];
 
-    [SerializeField] int rooms;
-    [SerializeField] int extraRooms;
+    int Rooms => GameManager.Instance.Rooms;
+    int ExtraRooms => GameManager.Instance.ExtraRooms;
 
     [SerializeField] Room bossRoom;
 
@@ -37,7 +37,7 @@ public class Generation : MonoBehaviour
 
         #region main path
         //create main path
-        for (int i = 0; i < rooms; i++)
+        for (int i = 0; i < Rooms; i++)
         {
             door = GetDoorFromRoom(currentRoom);
             Vector3 roomOffset = door.transform.localPosition;
@@ -76,7 +76,7 @@ public class Generation : MonoBehaviour
 
         #region extra rooms
         // Create extra rooms
-        for (int i = 0; i < extraRooms; i++)
+        for (int i = 0; i < ExtraRooms; i++)
         {
             pivot = GetRandomPivot();
 

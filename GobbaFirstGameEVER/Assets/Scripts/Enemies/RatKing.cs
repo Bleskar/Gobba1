@@ -8,6 +8,8 @@ public class RatKing : EnemyBase
     [SerializeField] Projectile ratling;
     [SerializeField] float speed = 5f;
 
+    [SerializeField] GameObject ladder;
+
     Vector2 direction;
 
     bool initialized;
@@ -22,7 +24,7 @@ public class RatKing : EnemyBase
 
     private void OnEnable()
     {
-        if (initialized)
+        if (initialized && alive)
             StartCoroutine(Phases());
     }
 
@@ -73,9 +75,22 @@ public class RatKing : EnemyBase
 
     public override void Kill()
     {
+        if (!alive)
+            return;
+
         alive = false;
         StopAllCoroutines();
-        base.Kill();
+        StartCoroutine(Death());
+    }
+
+    IEnumerator Death()
+    {
+        rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        PlayAnimation("Death");
+        yield return new WaitForSeconds(1f);
+
+        ladder.SetActive(true);
+        Destroy(gameObject);
     }
 
     public void Shoot()

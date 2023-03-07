@@ -55,13 +55,13 @@ public class PlayerInventory : MonoBehaviour
     {
         holding = w;
 
-        Title.Activate(w.name, w.description);
+        Title.Activate(w.name, w.Description);
     }
 
     void EquipItem(StatItem s)
     {
         items.Add(s);
 
-        Title.Activate(s.name, s.description);
+        Title.Activate(s.name, s.Description);
     }
 }
