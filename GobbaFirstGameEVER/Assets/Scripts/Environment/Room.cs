@@ -24,7 +24,7 @@ public class Room : MonoBehaviour
     [SerializeField] bool noDrops;
     [HideInInspector] public ItemBase itemDrop;
     [SerializeField] Transform dropArea;
-    bool enemiesKilled;
+    public bool enemiesKilled;
 
     public GameObject _Chest;
 
