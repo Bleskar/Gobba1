@@ -43,6 +43,9 @@ public abstract class EnemyBase : MonoBehaviour, IKillable
 
     public virtual void Kill()
     {
+        if (Random.value < .25f)
+            GameManager.Instance.DropHeart(transform.position, PlayerMovement.Instance.CurrentRoom);
+
         Destroy(gameObject);
     }
 

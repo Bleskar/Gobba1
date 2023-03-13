@@ -49,7 +49,8 @@ public class DestructableObject : MonoBehaviour, IKillable
         GameObject drop = dropPrefabs.Drop();
         if (drop)
         {
-            Instantiate(drop, transform.position + new Vector3(Random.value - .5f, Random.value - .5f, 0f).normalized, Quaternion.identity);
+            GameObject obj = Instantiate(drop, transform.position + new Vector3(Random.value - .5f, Random.value - .5f, 0f).normalized, Quaternion.identity);
+            obj.transform.parent = transform.parent;
         }
 
         yield return new WaitForSeconds(5f);

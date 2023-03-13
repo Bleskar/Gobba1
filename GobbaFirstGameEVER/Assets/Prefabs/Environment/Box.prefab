@@ -4914,8 +4914,11 @@ MonoBehaviour:
   deathParticles: {fileID: 3286713694879145801}
   dropPrefabs:
     items:
-    - item: {fileID: 0}
+    - item: {fileID: 635072565796298973, guid: d9fc6bd1836de8b49ae360660078ec1f, type: 3}
       weight: 1
+      min: 0
+    - item: {fileID: 0}
+      weight: 9
       min: 0
   health: 1
 --- !u!61 &3286713695201460720

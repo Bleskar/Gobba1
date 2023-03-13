@@ -6,7 +6,11 @@ public class PlayerInventory : MonoBehaviour
 {
 
     [SerializeField] Weapon holding;
-    public Weapon Holding => holding;
+    public Weapon Holding
+    {
+        get => holding;
+        set => holding = value;
+    }
 
     [SerializeField] List<StatItem> items = new List<StatItem>(0);
     public List<StatItem> Items => items;
@@ -15,13 +19,7 @@ public class PlayerInventory : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        GameManager.Instance.LoadStats(this);
     }
 
     public void PickUpItem(ItemWorld item)
@@ -51,14 +49,14 @@ public class PlayerInventory : MonoBehaviour
         }
     }
 
-    void EquipWeapon(Weapon w)
+    public void EquipWeapon(Weapon w)
     {
         holding = w;
 
         Title.Activate(w.name, w.Description);
     }
 
-    void EquipItem(StatItem s)
+    public void EquipItem(StatItem s)
     {
         items.Add(s);
 

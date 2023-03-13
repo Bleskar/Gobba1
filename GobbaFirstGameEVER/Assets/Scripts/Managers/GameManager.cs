@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
             return;
         }
 
+        startLevel = true;
+
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
@@ -26,11 +28,41 @@ public class GameManager : MonoBehaviour
     public int Rooms => level + 3;
     public int ExtraRooms => level / 2;
 
-    [Header("Item")]
+    [Header("Items")]
     [SerializeField] ItemWorld itemPrefab;
+    [SerializeField] Heart heartPrefab;
 
     [Header("Layers")]
     [SerializeField] int enemyLayer;
+
+    [Header("Player save data")]
+    bool startLevel = true;
+    [SerializeField] int health;
+    [SerializeField] Weapon holding;
+    [SerializeField] StatItem[] inventory = new StatItem[0];
+
+    public void SaveStats(PlayerInventory player)
+    {
+        health = PlayerCombat.Instance.Health;
+        holding = player.Holding;
+        inventory = player.Items.ToArray();
+    }
+
+    public void LoadStats(PlayerInventory player)
+    {
+        if (startLevel)
+            return;
+
+        startLevel = false;
+
+        PlayerCombat.Instance.Health = health;
+        player.EquipWeapon(holding);
+
+        for (int i = 0; i < inventory.Length; i++)
+        {
+            player.EquipItem(inventory[i]);
+        }
+    }
 
     public ItemWorld SpawnItem(Vector3 position, ItemBase item, Room parentRoom)
     {
@@ -40,8 +72,17 @@ public class GameManager : MonoBehaviour
         return clone;
     }
 
+    public Heart DropHeart(Vector3 position, Room parentRoom)
+    {
+        Heart clone = Instantiate(heartPrefab, position, Quaternion.identity);
+        clone.transform.parent = parentRoom.transform;
+
+        return clone;
+    }
+
     public void NextLevel()
     {
+        SaveStats(PlayerCombat.Instance.Inventory);
         level++;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
@@ -49,6 +90,7 @@ public class GameManager : MonoBehaviour
     public void ResetLevels()
     {
         level = 1;
+        startLevel = true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

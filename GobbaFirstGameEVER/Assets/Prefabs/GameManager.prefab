@@ -46,4 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 1
   itemPrefab: {fileID: 7391053110124235872, guid: a65a5bb4da9273b41810acc2afccccc9, type: 3}
+  heartPrefab: {fileID: 3455132880919343195, guid: d9fc6bd1836de8b49ae360660078ec1f, type: 3}
   enemyLayer: 15
+  health: 0
+  holding: {fileID: 0}
+  inventory: []
