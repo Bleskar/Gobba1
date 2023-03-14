@@ -22,7 +22,10 @@ public class EnemySwordAttack : MonoBehaviour
         cam = Camera.main;
         slashSprite = slashAnimation.GetComponent<SpriteRenderer>();
     }
-
+    private void OnDisable()
+    {
+        StopAllCoroutines();
+    }
     public void Attack(Vector3 direction)
     {
         direction.z = 0f;

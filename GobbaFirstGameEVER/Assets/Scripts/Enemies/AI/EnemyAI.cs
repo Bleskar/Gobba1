@@ -32,14 +32,28 @@ public class EnemyAI : MonoBehaviour
     private ContextSolver movementDirectionSolver;
 
     bool following = false;
+
+    bool initialized;
+    bool alive;
+    void Start()
+    {
+        initialized = true;
+    }
     private void OnEnable()
     {
-        InvokeRepeating("PerformDetection", 0, detectionDelay);
+        InvokeRepeating("PerformDetection", 0.1f, detectionDelay);
+        if (initialized)
+        {
+            
+        }
+        
+    }
+    private void OnDisable()
+    {
+        StopAllCoroutines();
+        CancelInvoke("PerformDetection");
     }
 
-    private void Start()
-    {
-    }
     private void PerformDetection()
     {
         foreach (Detector detector in detectors)

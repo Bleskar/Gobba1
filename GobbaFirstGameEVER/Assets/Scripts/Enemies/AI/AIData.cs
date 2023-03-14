@@ -11,4 +11,11 @@ public class AIData : MonoBehaviour
     public Transform currentTarget;
 
     public int GetTargetCount() => targets == null ? 0 : targets.Count;
+
+    private void OnDisable()
+    {
+        //targets.Clear();
+        currentTarget = null;
+    }
+
 }
