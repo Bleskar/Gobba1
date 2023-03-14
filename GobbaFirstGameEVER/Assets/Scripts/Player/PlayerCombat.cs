@@ -147,6 +147,7 @@ public class PlayerCombat : MonoBehaviour, IKillable
 
         AttackHitBox(direction);
 
+
         yield return new WaitForSeconds(Holding.attackTime / 2f);
         slashAnimation.gameObject.SetActive(false);
 

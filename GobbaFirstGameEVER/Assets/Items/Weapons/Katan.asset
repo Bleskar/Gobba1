@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 505b9611879183c479d0aa1380cd83d4, type: 3}
   m_Name: Katan
   m_EditorClassIdentifier: 
-  name: New Item
-  coverImage: {fileID: 0}
+  name: Katana
+  coverImage: {fileID: 21300000, guid: 052bbe6dbf3cf5c48ac49fcc09246440, type: 3}
   description: 
-  damage: 0
-  attackCooldown: 0
-  attackTime: 0
+  damage: 5
+  attackCooldown: 0.1
+  attackTime: 0.1
   attackRadius: 0.75
-  attackOffset: 0
+  attackOffset: 0.28
