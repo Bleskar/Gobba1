@@ -20,3 +20,4 @@ MonoBehaviour:
   attackTime: 0.2
   attackRadius: 0.75
   attackOffset: 0.28
+  proj: {fileID: 0}

@@ -269,7 +269,7 @@ MonoBehaviour:
   detectionRadius: 2
   layerMask:
     serializedVersion: 2
-    m_Bits: 16512
+    m_Bits: 49280
 --- !u!1 &5825197432984187850
 GameObject:
   m_ObjectHideFlags: 0
@@ -414,6 +414,9 @@ MonoBehaviour:
   acceleration: 50
   deacceleration: 50
   topSpeed: 1
+  mask:
+    serializedVersion: 2
+    m_Bits: 32768
 --- !u!114 &2293536570857973388
 MonoBehaviour:
   m_ObjectHideFlags: 0

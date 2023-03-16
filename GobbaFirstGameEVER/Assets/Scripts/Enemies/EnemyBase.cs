@@ -9,6 +9,8 @@ public abstract class EnemyBase : MonoBehaviour, IKillable
 
     public int Health { get; private set; }
 
+    protected int Multiplier => GameManager.Instance.CurrentLevel;
+
     //--ANIMATION--
     public string CurrentAnimation { get; private set; }
 
@@ -25,6 +27,7 @@ public abstract class EnemyBase : MonoBehaviour, IKillable
 
     protected void Initialize()
     {
+        maxHealth *= Multiplier;
         Health = maxHealth;
 
         anim = GetComponent<CharacterAnimator>();

@@ -16,6 +16,7 @@ public class EnemyAI : MonoBehaviour
 
     [SerializeField]
     private float detectionDelay = 0.05f, aiUpdateDelay = 0.06f, attackDelay = 1f;
+    protected int Multiplier => GameManager.Instance.CurrentLevel;
 
     [SerializeField]
     private float attackDistance = 0.5f;
@@ -42,11 +43,6 @@ public class EnemyAI : MonoBehaviour
     private void OnEnable()
     {
         InvokeRepeating("PerformDetection", 0.1f, detectionDelay);
-        if (initialized)
-        {
-            
-        }
-        
     }
     private void OnDisable()
     {
@@ -101,7 +97,7 @@ public class EnemyAI : MonoBehaviour
                 
                 OnAttackPressed?.Invoke(direction);
 
-                yield return new WaitForSeconds(attackDelay);
+                yield return new WaitForSeconds(attackDelay / Multiplier);
                 StartCoroutine(ChaseAndAttack());
             }
             else
