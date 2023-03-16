@@ -106,6 +106,7 @@ MonoBehaviour:
   startPosition: {x: 0, y: 0, z: 0}
   ratling: {fileID: 5384144083575991434, guid: 153ee54b3fa378a448671caebd506f7b, type: 3}
   speed: 2.5
+  ladder: {fileID: 0}
 --- !u!50 &1519923151600824582
 Rigidbody2D:
   serializedVersion: 4
@@ -339,7 +340,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6016892773550394430}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: -4}
   m_LocalScale: {x: 2.17, y: 2.17, z: 2.17}
   m_ConstrainProportionsScale: 1
   m_Children:
