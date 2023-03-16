@@ -148,7 +148,10 @@ public class PlayerCombat : MonoBehaviour, IKillable
     {
         if (!CanAttack)
             return;
-
+        if (Time.timeScale == 0)
+        {
+            return;
+        }
         StartCoroutine(Attack());
     }
     IEnumerator Attack()

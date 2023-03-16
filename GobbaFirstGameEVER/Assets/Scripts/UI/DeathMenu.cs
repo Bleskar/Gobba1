@@ -10,6 +10,7 @@ public class DeathMenu : MonoBehaviour
     [SerializeField] Image background;
     [SerializeField] Text title;
     [SerializeField] GameObject restart;
+    [SerializeField] GameObject quit;
 
     private void Awake()
     {
@@ -21,6 +22,7 @@ public class DeathMenu : MonoBehaviour
         background.color = Color.clear;
         title.color = Color.clear;
         restart.SetActive(false);
+        quit.SetActive(false);
     }
 
     public void Activate()
@@ -53,6 +55,7 @@ public class DeathMenu : MonoBehaviour
         yield return new WaitForSeconds(.4f);
 
         restart.SetActive(true);
+        quit.SetActive(true);
     }
 
     public void Restart()
