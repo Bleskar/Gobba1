@@ -43,5 +43,16 @@ public class ItemWorld : MonoBehaviour
         {
             pi.PickUpItem(this);
         }
+        if (collision.gameObject.layer == 14)
+        {
+            rb.velocity = Vector2.zero;
+        }
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == 14)
+        {
+            rb.velocity = -rb.velocity;
+        }
     }
 }
