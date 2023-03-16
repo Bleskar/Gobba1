@@ -240,8 +240,8 @@ MonoBehaviour:
       weight: 1
       min: 0
   spawnPositionsParent: {fileID: 8268015642853924443}
-  minNumberOfMobs: 4
-  maxNumberOfMobs: 8
+  minNumberOfMobs: 3
+  maxNumberOfMobs: 6
   boss: {fileID: 0}
   maxRemoveObjects: 10
   minRemoveObjects: 5
