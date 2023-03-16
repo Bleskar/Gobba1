@@ -1503,11 +1503,11 @@ MonoBehaviour:
       weight: 1
       min: 0
     - item: {fileID: 505126333122630308, guid: fa69d67c0f52b3746a727cd6011a239d, type: 3}
-      weight: 1
+      weight: 4
       min: 0
   spawnPositionsParent: {fileID: 6302455396778691909}
-  minNumberOfMobs: 6
-  maxNumberOfMobs: 12
+  minNumberOfMobs: 30
+  maxNumberOfMobs: 50
   boss: {fileID: 0}
   maxRemoveObjects: 10
   minRemoveObjects: 5

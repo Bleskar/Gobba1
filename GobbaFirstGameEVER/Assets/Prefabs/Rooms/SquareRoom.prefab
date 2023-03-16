@@ -231,7 +231,7 @@ MonoBehaviour:
   spawnableMobs:
     items:
     - item: {fileID: 505126333122630308, guid: fa69d67c0f52b3746a727cd6011a239d, type: 3}
-      weight: 1
+      weight: 3
       min: 0
     - item: {fileID: 5825197433061317317, guid: af2caaa1c500b5c4090ce5cd905ac1f4, type: 3}
       weight: 1
@@ -240,8 +240,8 @@ MonoBehaviour:
       weight: 1
       min: 0
   spawnPositionsParent: {fileID: 8268015642853924443}
-  minNumberOfMobs: 1
-  maxNumberOfMobs: 3
+  minNumberOfMobs: 4
+  maxNumberOfMobs: 8
   boss: {fileID: 0}
   maxRemoveObjects: 10
   minRemoveObjects: 5
