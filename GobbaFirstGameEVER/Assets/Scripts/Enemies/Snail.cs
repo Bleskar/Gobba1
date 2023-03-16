@@ -27,7 +27,8 @@ public class Snail : EnemyBase
         if (timer <= 0f)
         {
             timer += poolInterval;
-            Instantiate(poisonPool, transform.position + Vector3.forward, Quaternion.identity);
+            GameObject pool = Instantiate(poisonPool, transform.position + Vector3.forward, Quaternion.identity);
+            pool.transform.parent = gameObject.transform.parent.parent;
         }
 
         if (direction.y > 0f)

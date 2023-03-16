@@ -39,9 +39,14 @@ public abstract class EnemyBase : MonoBehaviour, IKillable
     {
         AudioManager.Play("Hurt");
 
-        Health -= dmg;
+        if (Health > 0)
+            Health -= dmg;
         if (Health <= 0)
+        {
+            Health = 0;
             Kill();
+        }
+            
     }
 
     public virtual void Kill()
