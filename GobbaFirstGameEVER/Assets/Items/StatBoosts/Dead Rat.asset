@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 88328cac8f0489048bbfb675abc73e9f, type: 3}
-  m_Name: Boots
+  m_Name: Dead Rat
   m_EditorClassIdentifier: 
-  name: Boots
-  coverImage: {fileID: 21300000, guid: 044237e58fd282c4aae76242fa3a7a78, type: 3}
+  name: Dead rat
+  coverImage: {fileID: 1020735891, guid: 8d09032dd9290024f9ccced17c715144, type: 3}
   description: 
-  healthBoost: 0
+  healthBoost: 10
   atkBoost: 1
-  speedBoost: 2
-  atkspd: 0
+  speedBoost: -1
+  atkspd: -1
