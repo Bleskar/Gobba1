@@ -23,7 +23,6 @@ public class EnemyMovement : EnemyBase
             {
                 if (enemies[i].gameObject != gameObject)
                 {
-                    Debug.Log("holy smokes");
                     Vector2 direction = enemies[i].transform.position - transform.position;
                     Movement(-direction);
                 }
