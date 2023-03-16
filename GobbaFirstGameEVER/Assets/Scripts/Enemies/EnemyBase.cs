@@ -10,7 +10,7 @@ public abstract class EnemyBase : MonoBehaviour, IKillable
     public int Health { get; private set; }
 
     protected int Multiplier => GameManager.Instance.CurrentLevel;
-
+    
     //--ANIMATION--
     public string CurrentAnimation { get; private set; }
 

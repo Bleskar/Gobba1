@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afd130ca694544349b80c2d3d642a36c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 200
   startPosition: {x: 0, y: 0, z: 0}
   ratling: {fileID: 5384144083575991434, guid: 153ee54b3fa378a448671caebd506f7b, type: 3}
   speed: 2.5

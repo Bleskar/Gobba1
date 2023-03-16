@@ -9,11 +9,11 @@ public class RatKing : EnemyBase
     [SerializeField] float speed = 5f;
 
     [SerializeField] GameObject ladder;
-
+    
     Vector2 direction;
 
     bool initialized;
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +31,7 @@ public class RatKing : EnemyBase
     private void Update()
     {
         sr.flipX = PlayerMovement.Instance.transform.position.x < transform.position.x;
+        
     }
 
     IEnumerator Phases()
@@ -57,10 +58,10 @@ public class RatKing : EnemyBase
             yield return new WaitForSeconds(1f);
 
             PlayAnimation("Summon");
-
-            for (int i = 0; i < Random.Range(6, 9); i++)
+            
+            for (int i = 0; i < Random.Range(6 + 2 * Multiplier, 9 + 4 * Multiplier); i++)
             {
-                yield return new WaitForSeconds(.5f);
+                yield return new WaitForSeconds(.5f/(.2f * (i + 6f)));
 
                 AudioManager.Play("Summon");
                 Shoot();
