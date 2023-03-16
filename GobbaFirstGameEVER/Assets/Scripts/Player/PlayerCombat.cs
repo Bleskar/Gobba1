@@ -76,7 +76,7 @@ public class PlayerCombat : MonoBehaviour, IKillable
                 boost += i.speedBoost;
             }
 
-            t *= Mathf.Pow(Mathf.Epsilon, -boost / 10f);
+            t *= Mathf.Pow(2.72f, -boost / 10f);
 
             return t;
         }
