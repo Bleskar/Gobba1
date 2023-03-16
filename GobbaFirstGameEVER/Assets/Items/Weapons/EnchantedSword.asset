@@ -20,5 +20,6 @@ MonoBehaviour:
   attackTime: 0.2
   attackRadius: 0.75
   attackOffset: 0.28
+  attackSound: Summon
   proj: {fileID: 4997170334570454352, guid: 3f2a5b0b0e26c6042a7e7be0cc42ee70, type: 3}
   shooter: 0

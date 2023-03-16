@@ -20,5 +20,6 @@ MonoBehaviour:
   attackTime: 0.2
   attackRadius: 0.75
   attackOffset: 0.28
+  attackSound: Fire
   proj: {fileID: 5733977051561173115, guid: d5a132e76119fec43bd2d62c696a10db, type: 3}
   shooter: 1

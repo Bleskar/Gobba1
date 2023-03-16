@@ -156,7 +156,7 @@ public class PlayerCombat : MonoBehaviour, IKillable
     }
     IEnumerator Attack()
     {
-        AudioManager.Play("Slash");
+        AudioManager.Play(Holding.attackSound);
 
         Attacking = true;
 
