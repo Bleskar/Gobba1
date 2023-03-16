@@ -145,6 +145,16 @@ public class PlayerCombat : MonoBehaviour, IKillable
 
         yield return new WaitForSeconds(Holding.attackTime / 2f);
 
+        if (Holding.proj)
+        {
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
+            GameObject arrow = Instantiate(Holding.proj, transform.position + direction * (Holding.attackRadius + Holding.attackOffset), q);
+
+            Projectile Pr = arrow.GetComponent<Projectile>();
+            Pr.direction = direction;
+        }
+
         AttackHitBox(direction);
 
 

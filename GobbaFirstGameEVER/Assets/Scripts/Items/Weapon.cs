@@ -12,6 +12,7 @@ public class Weapon : ItemBase
     public float attackRadius = .75f;
     public float attackOffset = 0f;
 
+    public GameObject proj;
     public override string Description => base.Description + $"\n+{damage} DMG";
 }
 

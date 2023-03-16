@@ -38,8 +38,8 @@ public class Projectile : MonoBehaviour
 
     public void Kill(RaycastHit2D hit)
     {
-        PlayerCombat pc = hit.transform.GetComponent<PlayerCombat>();
-        if (pc)
+        IKillable pc = hit.transform.GetComponent<IKillable>();
+        if (pc != null)
             pc.Damage(damage, direction);
 
         Destroy(gameObject);
