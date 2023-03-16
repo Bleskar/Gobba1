@@ -66,7 +66,8 @@ public class Room : MonoBehaviour
         if (itemDrop && !noDrops)
         {
             GameObject obj = Instantiate(_Chest, dropArea.position, Quaternion.identity);
-            Chest chest = obj.GetComponent<Chest>(); 
+            Chest chest = obj.GetComponent<Chest>();
+            chest.transform.parent = gameObject.transform;
             chest.item = itemDrop;
             chest.room = this;
         }
