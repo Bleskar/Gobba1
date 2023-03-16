@@ -29,6 +29,9 @@ public class EnemyAI : MonoBehaviour
     [SerializeField]
     private Vector2 movementInput;
 
+
+    private EnemyAnimator _anim;
+
     [SerializeField]
     private ContextSolver movementDirectionSolver;
 
@@ -38,6 +41,8 @@ public class EnemyAI : MonoBehaviour
     bool alive;
     void Start()
     {
+        _anim = gameObject.GetComponent<EnemyAnimator>();
+
         initialized = true;
     }
     private void OnEnable()
@@ -74,6 +79,10 @@ public class EnemyAI : MonoBehaviour
             aiData.currentTarget = aiData.targets[0];
         }
         OnMovementInput?.Invoke(movementInput);
+        if (_anim)
+        {
+            _anim.input = movementInput;
+        }
     }
     private IEnumerator ChaseAndAttack()
     {

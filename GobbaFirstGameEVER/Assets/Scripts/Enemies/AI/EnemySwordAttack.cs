@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemySwordAttack : MonoBehaviour
+public class EnemySwordAttack : EnemyCombat
 {
     public int damage;
     public float attackRadius;
@@ -35,6 +35,7 @@ public class EnemySwordAttack : MonoBehaviour
     IEnumerator AttackAnimation(Vector3 direction)
     {
         yield return new WaitForSeconds(attackDelay);
+        Attacking = true;
 
         slashAnimation.gameObject.SetActive(true);
 
@@ -54,6 +55,8 @@ public class EnemySwordAttack : MonoBehaviour
 
         yield return new WaitForSeconds(attackTime / 2f);
         slashAnimation.gameObject.SetActive(false);
+        Attacking = false;
+
     }
     void AttackHitBox(Vector3 direction)
     {
