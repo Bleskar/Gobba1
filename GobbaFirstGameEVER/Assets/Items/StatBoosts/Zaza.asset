@@ -17,6 +17,6 @@ MonoBehaviour:
   description: 
   healthBoost: -50
   atkBoost: 8
-  speedBoost: 3
-  dashBoost: 10
+  speedBoost: 2
+  dashBoost: 5
   atkspd: 80

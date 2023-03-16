@@ -19,4 +19,4 @@ MonoBehaviour:
   atkBoost: 0
   speedBoost: 0
   dashBoost: 0
-  atkspd: 0
+  atkspd: 80

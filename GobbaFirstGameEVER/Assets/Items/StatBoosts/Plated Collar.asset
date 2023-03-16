@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88328cac8f0489048bbfb675abc73e9f, type: 3}
   m_Name: Plated Collar
   m_EditorClassIdentifier: 
-  name: Platyed collar
+  name: Plated collar
   coverImage: {fileID: -1375624575, guid: 8d09032dd9290024f9ccced17c715144, type: 3}
   description: 
   healthBoost: 50
   atkBoost: 0
-  speedBoost: -3
+  speedBoost: -2
   dashBoost: -10
   atkspd: -20
