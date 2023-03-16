@@ -24,6 +24,10 @@ public class PlayerMovement : MonoBehaviour
             {
                 s += i.speedBoost;
             }
+            if (s < 1)
+            {
+                return 1;
+            }
 
             return s;
         }
