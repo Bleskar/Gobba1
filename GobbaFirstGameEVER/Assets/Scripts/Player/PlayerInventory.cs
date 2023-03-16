@@ -60,6 +60,6 @@ public class PlayerInventory : MonoBehaviour
     {
         items.Add(s);
 
-        Title.Activate(s.name, s.Description);
+        Title.Activate($"Picked up {s.name}");
     }
 }

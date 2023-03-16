@@ -27,6 +27,9 @@ public class PlayerCombat : MonoBehaviour, IKillable
                 h += i.healthBoost;
             }
 
+            if (h < 1)
+                h = 1;
+
             if (health > h)
                 health = h;
 
@@ -60,6 +63,9 @@ public class PlayerCombat : MonoBehaviour, IKillable
                 d += i.atkBoost;
             }
 
+            if (d < 1)
+                return 1;
+
             return d;
         }
     }
@@ -76,7 +82,7 @@ public class PlayerCombat : MonoBehaviour, IKillable
                 boost += i.speedBoost;
             }
 
-            t *= Mathf.Pow(2.72f, -boost / 10f);
+            t *= Mathf.Exp(-boost / 10f);
 
             return t;
         }
