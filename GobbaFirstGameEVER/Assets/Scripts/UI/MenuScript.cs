@@ -4,6 +4,10 @@ using UnityEngine.SceneManagement;
 public class MenuScript : MonoBehaviour
 {
     public int scene;
+    private void Start()
+    {
+        Time.timeScale = 1;
+    }
     public void Play()
     {
         SceneManager.LoadScene(scene);
