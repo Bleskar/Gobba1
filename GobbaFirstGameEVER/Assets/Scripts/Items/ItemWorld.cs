@@ -9,8 +9,9 @@ public class ItemWorld : MonoBehaviour
     [Header("Movement")]
     [SerializeField] float friction = 60f;
     [SerializeField] float slideSpeed = 20f;
-    [SerializeField] float itemSpawnTimer = .2f;
+    [SerializeField] float initTime = .4f;
 
+    float pickUpTimer;
     bool playerInside;
 
     SpriteRenderer sr;
@@ -19,6 +20,8 @@ public class ItemWorld : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        pickUpTimer = initTime;
+
         sr = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
     }
@@ -26,9 +29,9 @@ public class ItemWorld : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (itemSpawnTimer > 0)
+        if (pickUpTimer > 0)
         {
-            itemSpawnTimer -= Time.deltaTime;
+            pickUpTimer -= Time.deltaTime;
         }
 
         if (playerInside)
@@ -66,9 +69,10 @@ public class ItemWorld : MonoBehaviour
 
     public void PlayerPickUp()
     {
-        if (itemSpawnTimer > 0)
+        if (pickUpTimer > 0)
             return;
 
+        pickUpTimer = initTime;
         PlayerMovement.Instance.Inventory.PickUpItem(this);
     }
 

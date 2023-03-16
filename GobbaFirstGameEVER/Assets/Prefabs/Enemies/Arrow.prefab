@@ -131,5 +131,5 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 0}
   speed: 20
   damage: 10
-  faceDirection: 0
+  faceDirection: 1
   travelling: 1

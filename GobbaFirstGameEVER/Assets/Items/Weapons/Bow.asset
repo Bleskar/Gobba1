@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Bow
   coverImage: {fileID: 21300000, guid: f4e3d399a7328364b959678a1040d038, type: 3}
   description: 
-  damage: 0
+  damage: 10
   attackCooldown: 0.5
   attackTime: 0.1
   attackRadius: 0.75
