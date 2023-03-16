@@ -53,7 +53,6 @@ public class GameManager : MonoBehaviour
         if (startLevel)
             return;
 
-        startLevel = false;
 
         PlayerCombat.Instance.Health = health;
         player.EquipWeapon(holding);
@@ -84,6 +83,7 @@ public class GameManager : MonoBehaviour
     {
         SaveStats(PlayerCombat.Instance.Inventory);
         level++;
+        startLevel = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 

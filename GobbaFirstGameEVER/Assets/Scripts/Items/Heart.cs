@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Heart : MonoBehaviour
 {
-    [SerializeField] int heal = 5;
+    [SerializeField] float heal = 5f;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -12,7 +12,7 @@ public class Heart : MonoBehaviour
         if (player)
         {
             AudioManager.Play("PickUp");
-            player.Health += ((player.MaxHealth * heal) / 100);
+            player.Health += (int)Mathf.Round(player.MaxHealth * heal / 100f);
             Destroy(gameObject);
         }
     }
