@@ -231,10 +231,10 @@ MonoBehaviour:
   spawnableMobs:
     items:
     - item: {fileID: 505126333122630308, guid: fa69d67c0f52b3746a727cd6011a239d, type: 3}
-      weight: 2
+      weight: 3
       min: 0
     - item: {fileID: 5825197433061317317, guid: af2caaa1c500b5c4090ce5cd905ac1f4, type: 3}
-      weight: 1
+      weight: 2
       min: 0
     - item: {fileID: 5825197433061317317, guid: 05a64b57005b3f44a8dc219eae194c07, type: 3}
       weight: 1
