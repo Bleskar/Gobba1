@@ -22,6 +22,12 @@ public class PlayerInventory : MonoBehaviour
         GameManager.Instance.LoadStats(this);
     }
 
+    public void DropItem(int index)
+    {
+        GameManager.Instance.SpawnItem(transform.position + (Vector3)Random.insideUnitCircle, items[index], PlayerMovement.Instance.CurrentRoom);
+        items.RemoveAt(index);
+    }
+
     public void PickUpItem(ItemWorld item)
     {
         if (item.item.GetType() == typeof(Weapon))

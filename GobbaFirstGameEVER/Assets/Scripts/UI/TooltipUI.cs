@@ -23,7 +23,15 @@ public class TooltipUI : MonoBehaviour
         {
             ShowTooltip(slot);
             tooltip.position = Input.mousePosition - (Vector3)tooltip.sizeDelta * .5f;
+
+            if (Input.GetKeyDown(KeyCode.Q))
+                DropItem(slot.index);
         }    
+    }
+
+    void DropItem(int index)
+    {
+        PlayerMovement.Instance.Inventory.DropItem(index);
     }
 
     void ShowTooltip(InventorySlotUI slot)
