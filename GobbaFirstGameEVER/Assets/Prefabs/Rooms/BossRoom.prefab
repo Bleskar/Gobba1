@@ -50,6 +50,7 @@ MonoBehaviour:
   connection: {fileID: 0}
   bossDoor: 0
   doorRenderer: {fileID: 6809930252839837405}
+  delay: 1
 --- !u!61 &2839210878531466539
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10617,6 +10618,7 @@ MonoBehaviour:
   connection: {fileID: 0}
   bossDoor: 0
   doorRenderer: {fileID: 3488324679335183941}
+  delay: 1
 --- !u!61 &9133511723845006638
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11127,6 +11129,7 @@ MonoBehaviour:
   connection: {fileID: 0}
   bossDoor: 0
   doorRenderer: {fileID: 7292015977809000607}
+  delay: 1
 --- !u!61 &7077944012266284229
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15067,12 +15070,14 @@ MonoBehaviour:
   spawnPositionsParent: {fileID: 881767642992403126}
   minNumberOfMobs: 0
   maxNumberOfMobs: 0
+  boss: {fileID: 2583061916018351502}
   maxRemoveObjects: 0
   minRemoveObjects: 0
   objectsParent: {fileID: 6013035331327165078}
   noDrops: 1
   itemDrop: {fileID: 0}
   dropArea: {fileID: 2152042925487294728}
+  enemiesKilled: 0
   _Chest: {fileID: 6730956174370988627, guid: 1406e2c30a4c1514eb5a006af705f080, type: 3}
 --- !u!1 &8617681430114692365
 GameObject:
@@ -15260,6 +15265,7 @@ MonoBehaviour:
   connection: {fileID: 0}
   bossDoor: 0
   doorRenderer: {fileID: 6264140369391728506}
+  delay: 1
 --- !u!61 &7985130795443075207
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15600,6 +15606,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1519923151600824576, guid: 989780b15222a8b4f81ddaf6d59785b2, type: 3}
   m_PrefabInstance: {fileID: 3949440463493278857}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2583061916018351502 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1519923151600824583, guid: 989780b15222a8b4f81ddaf6d59785b2, type: 3}
+  m_PrefabInstance: {fileID: 3949440463493278857}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afd130ca694544349b80c2d3d642a36c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5450449600694731298
 PrefabInstance:
   m_ObjectHideFlags: 0

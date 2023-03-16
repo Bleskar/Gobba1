@@ -14,6 +14,7 @@ public class Room : MonoBehaviour
     [SerializeField] Transform spawnPositionsParent;
     [SerializeField] int minNumberOfMobs = 0;
     [SerializeField] int maxNumberOfMobs = 1;
+    public EnemyBase boss;
 
     [Header("Destructable Objects")]
     [SerializeField] int maxRemoveObjects = 2;
@@ -49,6 +50,10 @@ public class Room : MonoBehaviour
 
         SpawnEnemies();
         RemoveDestructableObjects();
+        if (boss)
+        {
+            currentEnemies.Add(boss);
+        }
     }
 
     private void Update()
