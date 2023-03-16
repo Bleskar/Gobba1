@@ -60,6 +60,9 @@ public class PlayerInventory : MonoBehaviour
     {
         items.Add(s);
 
+        if (s.healthBoost > 0)
+            PlayerCombat.Instance.Health += s.healthBoost;
+
         Title.Activate($"Picked up {s.name}");
     }
 }
