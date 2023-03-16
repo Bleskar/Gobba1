@@ -167,11 +167,13 @@ public class PlayerCombat : MonoBehaviour, IKillable
         direction.z = 0f;
         direction.Normalize();
 
-        slashAnimation.gameObject.SetActive(true);
+        if (!Holding.shooter)
+            slashAnimation.gameObject.SetActive(true);
 
         //animation stuff
         slashAnimation.speed = 1f / AttackTime;
-        slashAnimation.Play("Slash");
+        if (!Holding.shooter)
+            slashAnimation.Play("Slash");
 
         //position rotation and scale
         slashAnimation.transform.position = transform.position + direction * (Holding.attackRadius + Holding.attackOffset);
@@ -190,12 +192,16 @@ public class PlayerCombat : MonoBehaviour, IKillable
             Projectile Pr = arrow.GetComponent<Projectile>();
             Pr.direction = direction;
         }
-
-        AttackHitBox(direction);
-
+        if (!Holding.shooter)
+        {
+            AttackHitBox(direction);
+        }
 
         yield return new WaitForSeconds(AttackTime / 2f);
-        slashAnimation.gameObject.SetActive(false);
+        if (!Holding.shooter)
+        {
+            slashAnimation.gameObject.SetActive(false);
+        }
 
         yield return new WaitForSeconds(Holding.attackCooldown);
         Attacking = false;
