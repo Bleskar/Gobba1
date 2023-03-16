@@ -44,6 +44,9 @@ public class PlayerMovement : MonoBehaviour
                 s += i.dashBoost;
             }
 
+            if (s < dashSpeed)
+                s = dashSpeed;
+
             return s;
         }
     }
