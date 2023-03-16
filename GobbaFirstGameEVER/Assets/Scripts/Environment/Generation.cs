@@ -58,7 +58,7 @@ public class Generation : MonoBehaviour
 
         #region boss room
         //Create boss room
-        pivot = GetRandomPivotFromIndex(dungeon.Count, dungeon.Count);
+        pivot = GetRandomPivotFromIndex(dungeon.Count-1, dungeon.Count);
 
         door = GetDoorFromRoom(pivot);
         door.bossDoor = true;
