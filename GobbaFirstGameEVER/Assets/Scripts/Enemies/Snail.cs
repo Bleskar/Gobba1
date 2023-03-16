@@ -23,6 +23,8 @@ public class Snail : EnemyBase
     {
         sr.color = Color.Lerp(sr.color, Color.white, Time.deltaTime * 8f);
 
+        AttackBox(Vector2.zero, Vector2.one, 25);
+
         timer -= Time.deltaTime;
         if (timer <= 0f)
         {

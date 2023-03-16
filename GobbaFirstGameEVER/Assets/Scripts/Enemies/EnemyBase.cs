@@ -70,4 +70,14 @@ public abstract class EnemyBase : MonoBehaviour, IKillable
     {
         transform.position = startPosition;
     }
+
+    protected void AttackBox(Vector2 offset, Vector2 size, int damage)
+    {
+        Collider2D[] cda = Physics2D.OverlapBoxAll(transform.position + (Vector3)offset, size, 0f);
+        for (int i = 0; i < cda.Length; i++)
+        {
+            PlayerCombat pc = cda[i].GetComponent<PlayerCombat>();
+            if (pc) pc.Damage(damage, pc.transform.position - transform.position);
+        }
+    }
 }

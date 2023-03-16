@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2008946809075769317}
   - component: {fileID: 7488784371438926472}
-  - component: {fileID: 6523620864754956387}
   - component: {fileID: 8241489893270350765}
   m_Layer: 0
   m_Name: MagicBall
@@ -53,22 +52,6 @@ MonoBehaviour:
   speed: 20
   damage: 10
   travelling: 1
---- !u!58 &6523620864754956387
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4997170334570454352}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!212 &8241489893270350765
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -191,9 +191,7 @@ public class PlayerCombat : MonoBehaviour, IKillable
 
         if (Holding.proj)
         {
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
-            GameObject arrow = Instantiate(Holding.proj, transform.position + direction * (Holding.attackRadius + Holding.attackOffset), q);
+            GameObject arrow = Instantiate(Holding.proj, transform.position + direction * (Holding.attackRadius + Holding.attackOffset), Quaternion.identity);
 
             Projectile Pr = arrow.GetComponent<Projectile>();
             Pr.direction = direction;
