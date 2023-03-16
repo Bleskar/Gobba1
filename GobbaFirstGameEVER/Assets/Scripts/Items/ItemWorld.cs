@@ -9,6 +9,7 @@ public class ItemWorld : MonoBehaviour
     [Header("Movement")]
     [SerializeField] float friction = 60f;
     [SerializeField] float slideSpeed = 20f;
+    [SerializeField] float itemSpawnTimer = 1f;
 
     SpriteRenderer sr;
     Rigidbody2D rb;
@@ -23,6 +24,11 @@ public class ItemWorld : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (itemSpawnTimer > 0)
+        {
+            itemSpawnTimer -= Time.deltaTime;
+        }
+
         sr.sprite = item.coverImage;
 
         Vector2 dir = rb.velocity.normalized;
@@ -39,7 +45,7 @@ public class ItemWorld : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         PlayerInventory pi = collision.GetComponent<PlayerInventory>();
-        if (pi)
+        if (pi && itemSpawnTimer <= 0)
         {
             pi.PickUpItem(this);
         }
