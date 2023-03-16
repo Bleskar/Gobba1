@@ -11,6 +11,7 @@ public class Weapon : ItemBase
     public float attackTime;
     public float attackRadius = .75f;
     public float attackOffset = 0f;
+    public string attackSound = "Slash";
 
     public GameObject proj;
     public bool shooter;

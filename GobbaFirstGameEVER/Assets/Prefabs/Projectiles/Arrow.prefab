@@ -127,7 +127,9 @@ MonoBehaviour:
   targetLayers:
     serializedVersion: 2
     m_Bits: 49280
+  radius: 0.1
   direction: {x: 0, y: 0, z: 0}
   speed: 20
   damage: 10
+  faceDirection: 0
   travelling: 1

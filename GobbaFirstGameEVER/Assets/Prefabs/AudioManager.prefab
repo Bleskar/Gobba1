@@ -89,6 +89,18 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     pitchRandom: 0.25
+  - name: Fire
+    source: {fileID: 0}
+    clip: {fileID: 8300000, guid: 1f2c3dd1ce6787645aa2c8b462f491ca, type: 3}
+    volume: 1
+    pitch: 1
+    pitchRandom: 0.25
+  - name: Shoot
+    source: {fileID: 0}
+    clip: {fileID: 8300000, guid: e9d03b7ea77c6524690b8800927a9107, type: 3}
+    volume: 1
+    pitch: 1
+    pitchRandom: 0.25
   musicVolume: 1
   transitionTime: 0.5
   musicLibrary: []
