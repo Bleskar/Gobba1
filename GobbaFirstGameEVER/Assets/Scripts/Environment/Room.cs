@@ -53,6 +53,7 @@ public class Room : MonoBehaviour
         if (boss)
         {
             currentEnemies.Add(boss);
+            boss.startPosition = boss.transform.position;
         }
     }
 
