@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class EnemyBowScript : MonoBehaviour
 {
+    //Animation references
+    [SerializeField] CharacterAnimator caAnim;
+    [SerializeField] Animator anim;
+    [SerializeField] EnemyAI ai;
+    [SerializeField] SpriteRenderer sr;
+    float shootAnimation;
+
     public GameObject projectile;
     public int arrows;
     public int maxArrows;
@@ -27,6 +34,19 @@ public class EnemyBowScript : MonoBehaviour
     private void Update()
     {
         timeElapsed += Time.deltaTime;
+
+        if (shootAnimation <= 0f)
+        {
+            if (ai.movementInput == Vector2.zero)
+                caAnim.Play("Idle");
+            else
+                caAnim.Play("Walk");
+        }
+        else
+            shootAnimation -= Time.deltaTime;
+
+        if (ai.movementInput.x != 0f)
+            sr.flipX = ai.movementInput.x < 0f;
     }
     void Shoot(Vector3 direction)
     {
@@ -41,6 +61,8 @@ public class EnemyBowScript : MonoBehaviour
             Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
             GameObject arrow = Instantiate(projectile, (transform.position + direction * attackOffset), q);
 
+            ShootAnimation();
+
             Projectile Pr = arrow.GetComponent<Projectile>();
             Pr.direction = direction;
             if (arrows == 0)
@@ -49,5 +71,11 @@ public class EnemyBowScript : MonoBehaviour
                 return;
             }
         }
+    }
+
+    void ShootAnimation()
+    {
+        shootAnimation = .25f;
+        anim.Play("Shoot");
     }
 }

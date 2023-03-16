@@ -27,7 +27,7 @@ public class EnemyAI : MonoBehaviour
     public UnityEvent<Vector2> OnMovementInput, OnPointerInput;
 
     [SerializeField]
-    private Vector2 movementInput;
+    public Vector2 movementInput;
 
 
     private EnemyAnimator _anim;

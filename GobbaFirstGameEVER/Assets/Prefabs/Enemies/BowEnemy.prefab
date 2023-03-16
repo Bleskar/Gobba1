@@ -97,6 +97,8 @@ GameObject:
   - component: {fileID: 5825197433061317318}
   - component: {fileID: 5825197433061317312}
   - component: {fileID: 3386295227184622724}
+  - component: {fileID: 3982931447620764729}
+  - component: {fileID: 3764213094283704283}
   m_Layer: 15
   m_Name: BowEnemy
   m_TagString: Untagged
@@ -163,7 +165,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: fff5fdf6768301d4fbc8086a43f918f5, type: 3}
+  m_Sprite: {fileID: 440999627, guid: bd3f2ff2dca4f9045bbd051c15fd3c19, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -206,6 +208,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 725f75de804f8344bb0022de453fcbb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  caAnim: {fileID: 3764213094283704283}
+  anim: {fileID: 3982931447620764729}
+  ai: {fileID: 5825197433061317318}
+  sr: {fileID: 5825197433061317314}
   projectile: {fileID: 6876121231700349713, guid: 07b82b5cc2c43514eb0b107e5b1e9e29, type: 3}
   arrows: 0
   maxArrows: 3
@@ -340,6 +346,38 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5078125
+--- !u!95 &3982931447620764729
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5825197433061317321}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dcb4ab755eb137d4ab57b711ba87e3bd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3764213094283704283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5825197433061317321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0001987d1a240ce4d8dbc9ce7d1cc63f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5825197433205058297
 GameObject:
   m_ObjectHideFlags: 0
