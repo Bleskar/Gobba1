@@ -12,7 +12,7 @@ public class Heart : MonoBehaviour
         if (player)
         {
             AudioManager.Play("PickUp");
-            player.Health += heal;
+            player.Health += ((player.MaxHealth * heal) / 100);
             Destroy(gameObject);
         }
     }
