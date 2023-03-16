@@ -31,7 +31,7 @@ public class RatKing : EnemyBase
     private void Update()
     {
         sr.flipX = PlayerMovement.Instance.transform.position.x < transform.position.x;
-        
+        AttackBox(Vector2.zero, Vector2.one * 2f, 15 + 10 * Multiplier);
     }
 
     IEnumerator Phases()
