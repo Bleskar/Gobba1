@@ -50,7 +50,7 @@ MonoBehaviour:
   item: {fileID: 11400000, guid: 4ec7bac9dde27b54996f536c00b162fd, type: 2}
   friction: 60
   slideSpeed: 20
-  itemSpawnTimer: 0.2
+  itemSpawnTimer: 0.4
 --- !u!212 &7134060440826392821
 SpriteRenderer:
   m_ObjectHideFlags: 0
