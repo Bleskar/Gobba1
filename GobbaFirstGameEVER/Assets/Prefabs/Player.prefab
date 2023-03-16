@@ -260,7 +260,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holding: {fileID: 11400000, guid: 4ec7bac9dde27b54996f536c00b162fd, type: 2}
   items: []
-  maxItems: 10
+  maxItems: 5
 --- !u!50 &5534197356667520783
 Rigidbody2D:
   serializedVersion: 4

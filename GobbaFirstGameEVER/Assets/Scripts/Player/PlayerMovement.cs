@@ -6,12 +6,28 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public static PlayerMovement Instance { get; private set; }
+    public PlayerInventory Inventory { get; private set; }
     public Room CurrentRoom { get; private set; }
 
     [Header("Movement Options")]
     [SerializeField] float acceleration = 50f;
     [SerializeField] float deacceleration = 50f;
     [SerializeField] float topSpeed = 8f;
+
+    float TopSpeed
+    {
+        get
+        {
+            float s = topSpeed;
+
+            foreach (StatItem i in Inventory.Items)
+            {
+                s += i.speedBoost;
+            }
+
+            return s;
+        }
+    }
 
     [Header("Dash")]
     [SerializeField] float dashLength = 5f;
@@ -27,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
+        Inventory = GetComponent<PlayerInventory>();
         Instance = this;
     }
 
@@ -66,8 +83,8 @@ public class PlayerMovement : MonoBehaviour
         {
             //moving
             rb.velocity += input * Time.deltaTime * acceleration;
-            if (rb.velocity.magnitude > topSpeed)
-                rb.velocity = rb.velocity.normalized * topSpeed;
+            if (rb.velocity.magnitude > TopSpeed)
+                rb.velocity = rb.velocity.normalized * TopSpeed;
             return;
         }
         //breaking
@@ -92,7 +109,7 @@ public class PlayerMovement : MonoBehaviour
             yield return null;
         }
 
-        rb.velocity = direction * topSpeed;
+        rb.velocity = direction * TopSpeed;
 
         Dashing = false;
     }
