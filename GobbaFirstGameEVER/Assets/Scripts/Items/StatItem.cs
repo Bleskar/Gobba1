@@ -9,5 +9,6 @@ public class StatItem : ItemBase
     public int healthBoost;
     public int atkBoost;
     public int speedBoost;
+    public int dashBoost;
     public int atkspd;
 }

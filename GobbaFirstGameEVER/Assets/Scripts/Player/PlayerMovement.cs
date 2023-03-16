@@ -29,10 +29,25 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    float DashSpeed
+    {
+        get
+        {
+            float s = dashSpeed;
+
+            foreach (StatItem i in Inventory.Items)
+            {
+                s += i.dashBoost;
+            }
+
+            return s;
+        }
+    }
+
     [Header("Dash")]
     [SerializeField] float dashLength = 5f;
     [SerializeField] float dashSpeed = 20f;
-    float DashTime => dashLength / dashSpeed;
+    float DashTime => dashLength / DashSpeed;
     public bool Dashing { get; private set; }
 
     public bool Frozen => roomTransition || Dashing || PlayerCombat.Instance.Dead || PlayerCombat.Instance.Damaged;
@@ -103,7 +118,7 @@ public class PlayerMovement : MonoBehaviour
         float timer = 0f;
         while (timer < DashTime)
         {
-            rb.velocity = direction * dashSpeed;
+            rb.velocity = direction * DashSpeed;
 
             timer += Time.deltaTime;
             yield return null;

@@ -20,14 +20,17 @@ public class PlayerCombat : MonoBehaviour, IKillable
     {
         get
         {
-            int itemBoost = 0;
+            int h = initMaxHealth;
 
             foreach (StatItem i in Inventory.Items)
             {
-                itemBoost += i.healthBoost;
+                h += i.healthBoost;
             }
 
-            return initMaxHealth + itemBoost;
+            if (health > h)
+                health = h;
+
+            return h;
         }
     }
 
@@ -43,6 +46,39 @@ public class PlayerCombat : MonoBehaviour, IKillable
                 value = 0;
 
             health = value;
+        }
+    }
+
+    public int AttackDamage
+    {
+        get
+        {
+            int d = Holding.damage;
+
+            foreach (StatItem i in Inventory.Items)
+            {
+                d += i.atkBoost;
+            }
+
+            return d;
+        }
+    }
+
+    public float AttackTime
+    {
+        get
+        {
+            float t = Holding.attackTime;
+            float boost = 0;
+
+            foreach (StatItem i in Inventory.Items)
+            {
+                boost += i.speedBoost;
+            }
+
+            t *= Mathf.Pow(Mathf.Epsilon, -boost / 10f);
+
+            return t;
         }
     }
 
@@ -134,7 +170,7 @@ public class PlayerCombat : MonoBehaviour, IKillable
         slashAnimation.gameObject.SetActive(true);
 
         //animation stuff
-        slashAnimation.speed = 1f / Holding.attackTime;
+        slashAnimation.speed = 1f / AttackTime;
         slashAnimation.Play("Slash");
 
         //position rotation and scale
@@ -143,7 +179,7 @@ public class PlayerCombat : MonoBehaviour, IKillable
         slashAnimation.transform.rotation = Quaternion.Euler(0f, 0f, (Mathf.Atan(direction.y / direction.x) * 180f) / Mathf.PI);
         slashSprite.flipX = direction.x < 0f;
 
-        yield return new WaitForSeconds(Holding.attackTime / 2f);
+        yield return new WaitForSeconds(AttackTime / 2f);
 
         if (Holding.proj)
         {
@@ -158,7 +194,7 @@ public class PlayerCombat : MonoBehaviour, IKillable
         AttackHitBox(direction);
 
 
-        yield return new WaitForSeconds(Holding.attackTime / 2f);
+        yield return new WaitForSeconds(AttackTime / 2f);
         slashAnimation.gameObject.SetActive(false);
 
         yield return new WaitForSeconds(Holding.attackCooldown);
@@ -174,7 +210,7 @@ public class PlayerCombat : MonoBehaviour, IKillable
             if (ik != null) 
             {
                 cam.GetComponent<CameraShaker>().Shake();
-                ik.Damage(Holding.damage, direction);  
+                ik.Damage(AttackDamage, direction);  
             }
         }
     }
