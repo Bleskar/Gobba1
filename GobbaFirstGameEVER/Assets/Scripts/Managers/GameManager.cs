@@ -55,11 +55,11 @@ public class GameManager : MonoBehaviour
 
 
         PlayerCombat.Instance.Health = health;
-        player.EquipWeapon(holding);
+        player.AddWeaponDirect(holding);
 
         for (int i = 0; i < inventory.Length; i++)
         {
-            player.EquipItem(inventory[i]);
+            player.AddItemDirect(inventory[i]);
         }
     }
 

@@ -9,6 +9,7 @@ public abstract class EnemyBase : MonoBehaviour, IKillable
 
     public int Health { get; private set; }
 
+    //HELLO EVERYBODY MY NAME IS MULTIPLIER
     protected int Multiplier => GameManager.Instance.CurrentLevel;
     
     //--ANIMATION--

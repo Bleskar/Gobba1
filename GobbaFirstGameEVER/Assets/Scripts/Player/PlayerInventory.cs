@@ -62,6 +62,11 @@ public class PlayerInventory : MonoBehaviour
         Title.Activate(w.name, w.Description);
     }
 
+    public void AddWeaponDirect(Weapon w)
+    {
+        holding = w;
+    }
+
     public void EquipItem(StatItem s)
     {
         items.Add(s);
@@ -70,5 +75,10 @@ public class PlayerInventory : MonoBehaviour
             PlayerCombat.Instance.Health += s.healthBoost;
 
         Title.Activate($"Picked up {s.name}");
+    }
+
+    public void AddItemDirect(StatItem s)
+    {
+        items.Add(s);
     }
 }
