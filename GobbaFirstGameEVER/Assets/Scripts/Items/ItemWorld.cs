@@ -9,7 +9,7 @@ public class ItemWorld : MonoBehaviour
     [Header("Movement")]
     [SerializeField] float friction = 60f;
     [SerializeField] float slideSpeed = 20f;
-    [SerializeField] float itemSpawnTimer = 1f;
+    [SerializeField] float itemSpawnTimer = .5f;
 
     SpriteRenderer sr;
     Rigidbody2D rb;
