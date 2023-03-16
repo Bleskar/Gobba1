@@ -9,6 +9,7 @@ public class Chest : MonoBehaviour
     public ItemBase item;
     public Room room;
     bool chestOpened = false;
+    public Vector3 offset;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         
@@ -17,7 +18,7 @@ public class Chest : MonoBehaviour
             return;
         }
         chestOpened = true;
-        ItemWorld itm = GameManager.Instance.SpawnItem(transform.position, item, room);
+        ItemWorld itm = GameManager.Instance.SpawnItem(transform.position + offset, item, room);
         itm.gameObject.transform.parent = this.transform;
         sr = GetComponent<SpriteRenderer>();
         sr.sprite = open;
