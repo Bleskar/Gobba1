@@ -15,7 +15,8 @@ MonoBehaviour:
   name: Platyed collar
   coverImage: {fileID: -1375624575, guid: 8d09032dd9290024f9ccced17c715144, type: 3}
   description: 
-  healthBoost: 30
+  healthBoost: 50
   atkBoost: 0
-  speedBoost: -5
-  atkspd: -5
+  speedBoost: -3
+  dashBoost: -10
+  atkspd: -20

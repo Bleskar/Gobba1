@@ -16,6 +16,7 @@ MonoBehaviour:
   coverImage: {fileID: -165220421, guid: 8d09032dd9290024f9ccced17c715144, type: 3}
   description: 
   healthBoost: 20
-  atkBoost: 2
-  speedBoost: 1
-  atkspd: 2
+  atkBoost: 3
+  speedBoost: 2
+  dashBoost: -5
+  atkspd: 50

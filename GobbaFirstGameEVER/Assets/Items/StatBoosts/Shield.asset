@@ -15,7 +15,8 @@ MonoBehaviour:
   name: Shield
   coverImage: {fileID: 1263974306, guid: 8d09032dd9290024f9ccced17c715144, type: 3}
   description: 
-  healthBoost: 20
+  healthBoost: 40
   atkBoost: -1
-  speedBoost: -1
-  atkspd: -1
+  speedBoost: -2
+  dashBoost: 0
+  atkspd: -40
