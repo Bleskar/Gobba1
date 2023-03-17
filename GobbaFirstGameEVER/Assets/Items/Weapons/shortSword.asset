@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 505b9611879183c479d0aa1380cd83d4, type: 3}
   m_Name: shortSword
   m_EditorClassIdentifier: 
-  name: straightsword
+  name: Straightsword
   coverImage: {fileID: 21300000, guid: 94ea0d9c86c4ae3448156b3832371b14, type: 3}
   description: 
   damage: 12
@@ -20,3 +20,6 @@ MonoBehaviour:
   attackTime: 0.3
   attackRadius: 0.75
   attackOffset: 0.28
+  attackSound: Slash
+  proj: {fileID: 0}
+  shooter: 0
