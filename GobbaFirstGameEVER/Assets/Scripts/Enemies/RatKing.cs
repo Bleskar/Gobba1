@@ -59,7 +59,7 @@ public class RatKing : EnemyBase
 
             PlayAnimation("Summon");
             
-            for (int i = 0; i < Random.Range(6 + 2 * Multiplier, 9 + 4 * Multiplier); i++)
+            for (int i = 0; i < Random.Range(20 + 2 * Multiplier, 30 + 4 * Multiplier); i++)
             {
                 yield return new WaitForSeconds(.5f/(.2f * (i + 6f)));
 
