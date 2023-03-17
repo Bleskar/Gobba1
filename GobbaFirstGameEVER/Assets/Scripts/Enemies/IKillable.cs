@@ -4,6 +4,6 @@ using UnityEngine;
 
 public interface IKillable
 {
-    void Damage(int dmg, Vector2 knockback);
+    void Damage(int dmg, Vector2 knockback, IKillable attacker);
     void Kill();
 }

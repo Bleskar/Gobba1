@@ -52,7 +52,7 @@ public class Projectile : MonoBehaviour
         {
             IKillable ik = hit.transform.GetComponent<IKillable>();
             if (ik != null)
-                ik.Damage(damage, direction);
+                ik.Damage(damage, direction, null);
 
             transform.position = hit.point;
             Kill(ik);

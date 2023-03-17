@@ -11,4 +11,14 @@ public class StatItem : ItemBase
     public int speedBoost;
     public int dashBoost;
     public int atkspd;
+    public ItemSpecial special;
+}
+
+public enum ItemSpecial
+{
+    None,
+    SmokeDash, //inte tar skada när man dashar
+    TrapTrail, //lägger ut fällor efter sig
+    Multishot, //skjuter tre projectiles
+    Cactus, //Gör skada tillbaka när man tar skada
 }

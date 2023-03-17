@@ -52,10 +52,10 @@ public class Snail : EnemyBase
         rb.velocity = direction * speed;
     }
 
-    public override void Damage(int dmg, Vector2 knockback)
+    public override void Damage(int dmg, Vector2 knockback, IKillable attacker)
     {
         sr.color = Color.red;
-        base.Damage(dmg, knockback);
+        base.Damage(dmg, knockback, attacker);
     }
 
     void CheckWalls()

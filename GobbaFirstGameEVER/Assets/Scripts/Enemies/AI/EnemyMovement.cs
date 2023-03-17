@@ -50,10 +50,10 @@ public class EnemyMovement : EnemyBase
         if (rb.velocity.normalized != direction)
             rb.velocity = Vector2.zero;
     }
-    public override void Damage(int dmg, Vector2 knockback)
+    public override void Damage(int dmg, Vector2 knockback, IKillable attacker)
     {
         sr.color = Color.red;
-        base.Damage(dmg, knockback);
+        base.Damage(dmg, knockback, attacker);
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
