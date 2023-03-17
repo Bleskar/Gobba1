@@ -41,13 +41,13 @@ public class RatKing : EnemyBase
         while (alive)
         {
             PlayAnimation("Walk");
-            float timer = Random.Range(3f, 5f);
+            float timer = Random.Range(3f / Multiplier, 5f / Multiplier);
             while (timer > 0f)
             {
                 timer -= Time.deltaTime;
 
                 Vector2 dir = ((Vector2)PlayerMovement.Instance.transform.position - (Vector2)transform.position).normalized;
-                rb.velocity = dir * speed;
+                rb.velocity = dir * speed * Multiplier;
 
                 yield return null;
             }
