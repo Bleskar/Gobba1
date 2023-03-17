@@ -30,8 +30,9 @@ public class RatKing : EnemyBase
 
     private void Update()
     {
+        float dmg = 15 + 10 * Multiplier;
         sr.flipX = PlayerMovement.Instance.transform.position.x < transform.position.x;
-        AttackBox(new Vector2(0f,-.8f), new Vector2(1.5f, 1.9f), 15 + 10 * Multiplier);
+        AttackBox(new Vector2(0f,-.8f), new Vector2(1.5f, 1.9f), (int)dmg);
     }
 
     IEnumerator Phases()
