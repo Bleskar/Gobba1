@@ -568,7 +568,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6311471208473469092, guid: d7254c82d89374544b7cf866e4e8b527, type: 3}
       propertyPath: itemDrops.items.Array.size
-      value: 22
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 6311471208473469092, guid: d7254c82d89374544b7cf866e4e8b527, type: 3}
       propertyPath: itemDrops.items.Array.data[0].item
@@ -659,6 +659,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: e9db94fbe164bfc468caa0e20a0a016c, type: 2}
     - target: {fileID: 6311471208473469092, guid: d7254c82d89374544b7cf866e4e8b527, type: 3}
+      propertyPath: itemDrops.items.Array.data[22].item
+      value: 
+      objectReference: {fileID: 11400000, guid: 954e75eb69fad9d4884492596b7568df, type: 2}
+    - target: {fileID: 6311471208473469092, guid: d7254c82d89374544b7cf866e4e8b527, type: 3}
+      propertyPath: itemDrops.items.Array.data[23].item
+      value: 
+      objectReference: {fileID: 11400000, guid: 7400df3e0a3dfb540b159398102976b6, type: 2}
+    - target: {fileID: 6311471208473469092, guid: d7254c82d89374544b7cf866e4e8b527, type: 3}
       propertyPath: itemDrops.items.Array.data[1].weight
       value: 1
       objectReference: {fileID: 0}
@@ -740,6 +748,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6311471208473469092, guid: d7254c82d89374544b7cf866e4e8b527, type: 3}
       propertyPath: itemDrops.items.Array.data[21].weight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6311471208473469092, guid: d7254c82d89374544b7cf866e4e8b527, type: 3}
+      propertyPath: itemDrops.items.Array.data[22].weight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6311471208473469092, guid: d7254c82d89374544b7cf866e4e8b527, type: 3}
+      propertyPath: itemDrops.items.Array.data[23].weight
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6311471208473469093, guid: d7254c82d89374544b7cf866e4e8b527, type: 3}
