@@ -4916,6 +4916,7 @@ MonoBehaviour:
   radius: 0.18
   direction: {x: 0, y: 0, z: 0}
   speed: 20
-  damage: 10
+  damage: 0
   faceDirection: 0
   travelling: 1
+  alwaysShow: 0

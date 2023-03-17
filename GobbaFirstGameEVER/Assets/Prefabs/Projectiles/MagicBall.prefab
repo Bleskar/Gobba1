@@ -49,11 +49,13 @@ MonoBehaviour:
   targetLayers:
     serializedVersion: 2
     m_Bits: 49280
+  radius: 0.25
   direction: {x: 0, y: 0, z: 0}
   speed: 20
-  damage: 10
+  damage: 0
   faceDirection: 1
   travelling: 1
+  alwaysShow: 0
 --- !u!212 &8241489893270350765
 SpriteRenderer:
   m_ObjectHideFlags: 0

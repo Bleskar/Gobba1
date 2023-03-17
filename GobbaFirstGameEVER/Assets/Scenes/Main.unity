@@ -553,14 +553,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PussInBoots
       objectReference: {fileID: 0}
-    - target: {fileID: 5534197356667521011, guid: 08cbb5d2fb9be5745b7d11a638be0293, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5534197356667521011, guid: 08cbb5d2fb9be5745b7d11a638be0293, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08cbb5d2fb9be5745b7d11a638be0293, type: 3}
 --- !u!1001 &6311471206942547400
