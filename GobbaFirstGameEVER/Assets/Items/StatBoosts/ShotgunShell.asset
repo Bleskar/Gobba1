@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 88328cac8f0489048bbfb675abc73e9f, type: 3}
-  m_Name: Shield
+  m_Name: ShotgunShell
   m_EditorClassIdentifier: 
-  name: Shield
-  coverImage: {fileID: 1263974306, guid: 8d09032dd9290024f9ccced17c715144, type: 3}
-  description: All damage is negated when dashing
-  healthBoost: 40
-  atkBoost: 0
-  speedBoost: -2
+  name: Shotgun shell
+  coverImage: {fileID: 403767582, guid: 7b929757e4ff20344b5b80e74aae8fe6, type: 3}
+  description: Multishot on ranged weapons!
+  healthBoost: 0
+  atkBoost: -6
+  speedBoost: 0
   dashBoost: 0
-  atkspd: -40
-  special: 1
+  atkspd: 0
+  special: 3

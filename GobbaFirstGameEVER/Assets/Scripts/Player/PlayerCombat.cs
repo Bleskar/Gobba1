@@ -108,6 +108,10 @@ public class PlayerCombat : MonoBehaviour, IKillable
 
     Rigidbody2D rb;
 
+    [Header("Specials")]
+    [SerializeField] float trapDropTime = 4f;
+    float dropTimer;
+
     //used when attacking
     public Vector3 MouseDirection => (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized;
     Vector3 direction;
@@ -122,6 +126,8 @@ public class PlayerCombat : MonoBehaviour, IKillable
 
     private void Start()
     {
+        dropTimer = trapDropTime;
+
         cam = Camera.main;
         anim = GetComponent<PlayerAnimation>();
 
@@ -137,6 +143,13 @@ public class PlayerCombat : MonoBehaviour, IKillable
             damageTimer -= Time.deltaTime;
         else if (iTime > 0f)
             iTime -= Time.deltaTime;
+
+        dropTimer -= Inventory.PerkLevel(ItemSpecial.TrapTrail) * Time.deltaTime;
+        if (dropTimer <= 0f)
+        {
+            dropTimer += trapDropTime;
+            GameManager.Instance.SpawnTrap(transform.position);
+        }
 
         sr.color = Color.Lerp(sr.color, Color.white, Time.deltaTime * 8f);
 
@@ -194,11 +207,19 @@ public class PlayerCombat : MonoBehaviour, IKillable
 
         if (Holding.proj)
         {
-            GameObject arrow = Instantiate(Holding.proj, transform.position + direction * (Holding.attackRadius + Holding.attackOffset), Quaternion.identity);
+            ShootProjectile(direction, AttackDamage, direction * Holding.attackOffset, Holding.proj.GetComponent<Projectile>());
 
-            Projectile Pr = arrow.GetComponent<Projectile>();
-            Pr.direction = direction;
-            Pr.damage += AttackDamage;
+            int multiLevel = Inventory.PerkLevel(ItemSpecial.Multishot);
+            if (multiLevel > 0)
+                for (int i = 1; i <= multiLevel; i++)
+                {
+                    float a = Mathf.Atan2(direction.y, direction.x);
+                    float a1 = a + (Mathf.PI * i) / 12f;
+                    float a2 = a - (Mathf.PI * i) / 12f;
+
+                    ShootProjectile(new Vector2(Mathf.Cos(a1), Mathf.Sin(a1)), AttackDamage, direction * Holding.attackOffset, Holding.proj.GetComponent<Projectile>());
+                    ShootProjectile(new Vector2(Mathf.Cos(a2), Mathf.Sin(a2)), AttackDamage, direction * Holding.attackOffset, Holding.proj.GetComponent<Projectile>());
+                }
         }
         if (!Holding.shooter)
         {
@@ -213,6 +234,14 @@ public class PlayerCombat : MonoBehaviour, IKillable
 
         yield return new WaitForSeconds(Holding.attackCooldown);
         Attacking = false;
+    }
+
+    void ShootProjectile(Vector2 dir, int dmg, Vector3 offset, Projectile prefab)
+    {
+        Projectile pr = Instantiate(prefab, transform.position + offset, Quaternion.identity);
+
+        pr.direction = dir;
+        pr.damage += dmg;
     }
 
     void AttackHitBox(Vector3 direction)
@@ -240,6 +269,12 @@ public class PlayerCombat : MonoBehaviour, IKillable
 
     public void Damage(int dmg, Vector2 knock, IKillable attacker)
     {
+        if (Movement.Dashing && Inventory.HasPerk(ItemSpecial.SmokeDash))
+            return;
+
+        if (Inventory.HasPerk(ItemSpecial.Cactus))
+            attacker?.Damage((int)(AttackDamage * .1f * Inventory.PerkLevel(ItemSpecial.Cactus)), -knock, this);
+
         if (iTime > 0f || Health <= 0)
             return;
 

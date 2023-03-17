@@ -568,7 +568,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6311471208473469092, guid: d7254c82d89374544b7cf866e4e8b527, type: 3}
       propertyPath: itemDrops.items.Array.size
-      value: 19
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 6311471208473469092, guid: d7254c82d89374544b7cf866e4e8b527, type: 3}
       propertyPath: itemDrops.items.Array.data[0].item
@@ -647,6 +647,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 269b13c2dbc2a494283a261accd640c4, type: 2}
     - target: {fileID: 6311471208473469092, guid: d7254c82d89374544b7cf866e4e8b527, type: 3}
+      propertyPath: itemDrops.items.Array.data[19].item
+      value: 
+      objectReference: {fileID: 11400000, guid: fd25ed660609d124fb5b2ff8f7bb1306, type: 2}
+    - target: {fileID: 6311471208473469092, guid: d7254c82d89374544b7cf866e4e8b527, type: 3}
+      propertyPath: itemDrops.items.Array.data[20].item
+      value: 
+      objectReference: {fileID: 11400000, guid: d0b81b2b8999ce04884927d353036c65, type: 2}
+    - target: {fileID: 6311471208473469092, guid: d7254c82d89374544b7cf866e4e8b527, type: 3}
+      propertyPath: itemDrops.items.Array.data[21].item
+      value: 
+      objectReference: {fileID: 11400000, guid: e9db94fbe164bfc468caa0e20a0a016c, type: 2}
+    - target: {fileID: 6311471208473469092, guid: d7254c82d89374544b7cf866e4e8b527, type: 3}
       propertyPath: itemDrops.items.Array.data[1].weight
       value: 1
       objectReference: {fileID: 0}
@@ -716,6 +728,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6311471208473469092, guid: d7254c82d89374544b7cf866e4e8b527, type: 3}
       propertyPath: itemDrops.items.Array.data[18].weight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6311471208473469092, guid: d7254c82d89374544b7cf866e4e8b527, type: 3}
+      propertyPath: itemDrops.items.Array.data[19].weight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6311471208473469092, guid: d7254c82d89374544b7cf866e4e8b527, type: 3}
+      propertyPath: itemDrops.items.Array.data[20].weight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6311471208473469092, guid: d7254c82d89374544b7cf866e4e8b527, type: 3}
+      propertyPath: itemDrops.items.Array.data[21].weight
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6311471208473469093, guid: d7254c82d89374544b7cf866e4e8b527, type: 3}

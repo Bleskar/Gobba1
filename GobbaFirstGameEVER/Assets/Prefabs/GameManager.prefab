@@ -48,10 +48,12 @@ MonoBehaviour:
   level: 1
   itemPrefab: {fileID: 7391053110124235872, guid: a65a5bb4da9273b41810acc2afccccc9, type: 3}
   heartPrefab: {fileID: 3455132880919343195, guid: d9fc6bd1836de8b49ae360660078ec1f, type: 3}
+  trap: {fileID: 7629539802583497482, guid: f6e03cd1756801b4189e16af0c1a3382, type: 3}
   enemyLayer: 15
   health: 0
   holding: {fileID: 0}
   inventory: []
+  enemiesKilled: 0
   particles:
   - {fileID: 8727885187890992673}
 --- !u!1 &3170704674429589740

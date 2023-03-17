@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
     [Header("Items")]
     [SerializeField] ItemWorld itemPrefab;
     [SerializeField] Heart heartPrefab;
+    [SerializeField] RatTrap trap;
 
     [Header("Layers")]
     [SerializeField] int enemyLayer;
@@ -62,6 +63,11 @@ public class GameManager : MonoBehaviour
         };
 
         p.Emit(ep, emit);
+    }
+
+    public void SpawnTrap(Vector3 position)
+    {
+        Instantiate(trap, position, Quaternion.identity);
     }
 
     public void SaveStats(PlayerInventory player)
