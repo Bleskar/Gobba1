@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] int health;
     [SerializeField] Weapon holding;
     [SerializeField] StatItem[] inventory = new StatItem[0];
+    public int enemiesKilled; 
 
     [Header("Particles")]
     [SerializeField] ParticleSystem[] particles = new ParticleSystem[0];
@@ -74,7 +75,6 @@ public class GameManager : MonoBehaviour
     {
         if (startLevel)
             return;
-
 
         PlayerCombat.Instance.Health = health;
         player.AddWeaponDirect(holding);
@@ -111,8 +111,20 @@ public class GameManager : MonoBehaviour
 
     public void ResetLevels()
     {
+        enemiesKilled = 0;
         level = 1;
         startLevel = true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public int Score
+    {
+        get
+        {
+            int s = (CurrentLevel - 1) * 20;
+            s += enemiesKilled;
+            s += PlayerMovement.Instance.Inventory.Items.Count * 3;
+            return s;
+        }
     }
 }

@@ -52,6 +52,7 @@ public abstract class EnemyBase : MonoBehaviour, IKillable
 
     public virtual void Kill()
     {
+        GameManager.Instance.enemiesKilled++;
         GameManager.Instance.PlayParticles("DeathPoof", transform.position, Random.Range(6, 12));
 
         if (Random.value < .25f)
