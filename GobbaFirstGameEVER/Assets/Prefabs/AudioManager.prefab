@@ -101,6 +101,12 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     pitchRandom: 0.25
+  - name: TextAppear
+    source: {fileID: 0}
+    clip: {fileID: 8300000, guid: f21d80c4c47f30746a5c3d88520d8a84, type: 3}
+    volume: 1
+    pitch: 1
+    pitchRandom: 0.25
   musicVolume: 1
   transitionTime: 0.5
   musicLibrary: []

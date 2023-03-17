@@ -9,6 +9,7 @@ public class DeathMenu : MonoBehaviour
 
     [SerializeField] Image background;
     [SerializeField] Text title;
+    [SerializeField] Text scoreText;
     [SerializeField] GameObject restart;
     [SerializeField] GameObject quit;
 
@@ -21,6 +22,7 @@ public class DeathMenu : MonoBehaviour
     {
         background.color = Color.clear;
         title.color = Color.clear;
+        scoreText.text = "";
         restart.SetActive(false);
         quit.SetActive(false);
     }
@@ -54,9 +56,21 @@ public class DeathMenu : MonoBehaviour
 
         yield return new WaitForSeconds(.4f);
 
+        AudioManager.Play("TextAppear");
+        scoreText.text = $"You made it to level {GameManager.Instance.CurrentLevel}!";
+
+        yield return new WaitForSeconds(.4f);
+
+        AudioManager.Play("TextAppear");
+        scoreText.text += $"\nScore: {GameManager.Instance.Score}";
+
+        yield return new WaitForSeconds(.4f);
+
+        AudioManager.Play("TextAppear");
         restart.SetActive(true);
         quit.SetActive(true);
     }
+
 
     public void Restart()
     {

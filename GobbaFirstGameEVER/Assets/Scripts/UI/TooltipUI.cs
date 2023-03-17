@@ -14,14 +14,25 @@ public class TooltipUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        InventorySlotUI slot = CheckHover();
-        if (!slot)
+        StatItem item = null;
+
+        //Check hover
+        InventorySlotUI slot = CheckHoverUI();
+        if (slot)
+            item = PlayerMovement.Instance.Inventory.Items[slot.index];
+        else
+        {
+            item = CheckHover();
+        }
+
+        //Display information
+        if (!item)
         {
             tooltip.gameObject.SetActive(false);
         }
         else
         {
-            ShowTooltip(slot);
+            ShowTooltip(item);
             tooltip.position = Input.mousePosition - (Vector3)tooltip.sizeDelta * .5f;
 
             if (Input.GetKeyDown(KeyCode.Q))
@@ -34,11 +45,9 @@ public class TooltipUI : MonoBehaviour
         PlayerMovement.Instance.Inventory.DropItem(index);
     }
 
-    void ShowTooltip(InventorySlotUI slot)
+    void ShowTooltip(StatItem item)
     {
         tooltip.gameObject.SetActive(true);
-
-        StatItem item = PlayerMovement.Instance.Inventory.Items[slot.index];
 
         title.text = item.name;
         string desc = item.Description.Trim() != "" ? $"{item.Description}\n" : "";
@@ -60,7 +69,7 @@ public class TooltipUI : MonoBehaviour
         return $"{header} {(var > 0f ? "+" : "")}{var:N0}\n";
     }
 
-    InventorySlotUI CheckHover()
+    InventorySlotUI CheckHoverUI()
     {
         PointerEventData eventData = new PointerEventData(EventSystem.current);
         eventData.position = Input.mousePosition;
@@ -76,6 +85,17 @@ public class TooltipUI : MonoBehaviour
                 return slot;
         }
 
+        return null;
+    }
+
+    public StatItem CheckHover()
+    {
+        Collider2D[] cda = Physics2D.OverlapPointAll(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+        for (int i = 0; i < cda.Length; i++)
+        {
+            ItemWorld item = cda[i].GetComponent<ItemWorld>();
+            if (item && item.GetType() == typeof(StatItem)) return (StatItem)item.item;
+        }
         return null;
     }
 }
