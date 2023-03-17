@@ -14,11 +14,12 @@ public class Projectile : MonoBehaviour
     public bool faceDirection;
     public bool Travelling => travelling && !dead;
 
-    float deathTimer;
-    bool dead;
+    protected float deathTimer;
+    protected bool dead;
     public bool travelling;
+    public bool alwaysShow;
 
-    SpriteRenderer sr;
+    protected SpriteRenderer sr;
 
     private void Start()
     {
@@ -29,7 +30,7 @@ public class Projectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        sr.enabled = !dead;
+        sr.enabled = !dead || alwaysShow;
 
         deathTimer -= Time.deltaTime;
         if (deathTimer <= 0)
