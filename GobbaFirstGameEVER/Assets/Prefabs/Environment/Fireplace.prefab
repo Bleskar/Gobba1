@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7272240934738856392}
   - component: {fileID: 7911366974262918902}
   - component: {fileID: 5323033763038299067}
-  - component: {fileID: 4321830671581929548}
   - component: {fileID: 6030124578091331500}
   - component: {fileID: 7033196684287557390}
   m_Layer: 14
@@ -109,22 +108,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &4321830671581929548
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4241967482377388207}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66def7dcaa0494046ae31c47a2066f81, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  deathParticles: {fileID: 8659090141125662103}
-  dropPrefabs:
-    items: []
-  health: 1
 --- !u!114 &6030124578091331500
 MonoBehaviour:
   m_ObjectHideFlags: 0
