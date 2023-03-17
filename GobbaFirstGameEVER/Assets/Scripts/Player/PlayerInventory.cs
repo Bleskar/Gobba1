@@ -28,6 +28,20 @@ public class PlayerInventory : MonoBehaviour
         items.RemoveAt(index);
     }
 
+    public bool HasPerk(ItemSpecial special) =>
+        PerkLevel(special) > 0;
+
+    public int PerkLevel(ItemSpecial special)
+    {
+        int level = 0;
+        foreach (StatItem item in items)
+        {
+            if (item.special == special)
+                level++;
+        }
+        return level;
+    }
+
     public void PickUpItem(ItemWorld item)
     {
         if (item.item.GetType() == typeof(Weapon))

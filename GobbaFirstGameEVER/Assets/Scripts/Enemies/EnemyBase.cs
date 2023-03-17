@@ -36,7 +36,7 @@ public abstract class EnemyBase : MonoBehaviour, IKillable
         sr = GetComponent<SpriteRenderer>();
     }
 
-    public virtual void Damage(int dmg, Vector2 knockback)
+    public virtual void Damage(int dmg, Vector2 knockback, IKillable attacker)
     {
         AudioManager.Play("Hurt");
 
@@ -81,7 +81,7 @@ public abstract class EnemyBase : MonoBehaviour, IKillable
         for (int i = 0; i < cda.Length; i++)
         {
             PlayerCombat pc = cda[i].GetComponent<PlayerCombat>();
-            if (pc) pc.Damage(damage, pc.transform.position - transform.position);
+            if (pc) pc.Damage(damage, pc.transform.position - transform.position, this);
         }
     }
 }

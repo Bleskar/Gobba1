@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemySwordAttack : EnemyCombat
 {
+    [SerializeField] EnemyMovement killable;
+
     public int damage;
     public float attackRadius;
     public float attackOffset;
@@ -67,7 +69,7 @@ public class EnemySwordAttack : EnemyCombat
             if (ik != null)
             {
                 cam.GetComponent<CameraShaker>().Shake(); 
-                ik.Damage(damage, direction);
+                ik.Damage(damage, direction, killable);
             }
         }
     }

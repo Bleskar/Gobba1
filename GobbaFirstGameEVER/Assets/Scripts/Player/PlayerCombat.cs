@@ -224,7 +224,7 @@ public class PlayerCombat : MonoBehaviour, IKillable
             if (ik != null) 
             {
                 cam.GetComponent<CameraShaker>().Shake();
-                ik.Damage(AttackDamage, direction);  
+                ik.Damage(AttackDamage, direction, this);  
             }
         }
     }
@@ -238,7 +238,7 @@ public class PlayerCombat : MonoBehaviour, IKillable
         Gizmos.DrawWireSphere(transform.position + Vector3.right * (Holding.attackRadius + Holding.attackOffset), Holding.attackRadius);
     }
 
-    public void Damage(int dmg, Vector2 knock)
+    public void Damage(int dmg, Vector2 knock, IKillable attacker)
     {
         if (iTime > 0f || Health <= 0)
             return;

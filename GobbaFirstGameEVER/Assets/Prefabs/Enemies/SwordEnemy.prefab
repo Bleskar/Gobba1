@@ -432,6 +432,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Attacking: 0
+  killable: {fileID: 5825197433061317317}
   damage: 10
   attackRadius: 0.66
   attackOffset: 0.17

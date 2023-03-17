@@ -23,7 +23,7 @@ public class DestructableObject : MonoBehaviour, IKillable
         cd = GetComponent<Collider2D>();
     }
 
-    public void Damage(int dmg, Vector2 knock)
+    public void Damage(int dmg, Vector2 knock, IKillable attacker)
     {
         health -= dmg;
         if (health <= 0)

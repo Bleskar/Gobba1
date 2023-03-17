@@ -31,6 +31,6 @@ public class PoisonPool : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         PlayerCombat pc = collision.GetComponent<PlayerCombat>();
-        pc?.Damage(damage, collision.transform.position - transform.position);
+        pc?.Damage(damage, collision.transform.position - transform.position, null);
     }
 }
