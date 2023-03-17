@@ -35,7 +35,7 @@ public class TooltipUI : MonoBehaviour
             ShowTooltip(item);
             tooltip.position = Input.mousePosition - (Vector3)tooltip.sizeDelta * .5f;
 
-            if (Input.GetKeyDown(KeyCode.Q))
+            if (Input.GetKeyDown(KeyCode.Q) && slot)
                 DropItem(slot.index);
         }    
     }
@@ -94,7 +94,7 @@ public class TooltipUI : MonoBehaviour
         for (int i = 0; i < cda.Length; i++)
         {
             ItemWorld item = cda[i].GetComponent<ItemWorld>();
-            if (item && item.GetType() == typeof(StatItem)) return (StatItem)item.item;
+            if (item && item.item.GetType() == typeof(StatItem)) return (StatItem)item.item;
         }
         return null;
     }
