@@ -15,7 +15,7 @@ MonoBehaviour:
   name: EnchantedSword
   coverImage: {fileID: 21300000, guid: 8f441fa0d8c86a04290c4e73ea31b478, type: 3}
   description: kling klong pling pling
-  damage: 5
+  damage: 2
   attackCooldown: 0.1
   attackTime: 0.2
   attackRadius: 0.75
