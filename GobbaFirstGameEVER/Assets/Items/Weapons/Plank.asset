@@ -20,4 +20,6 @@ MonoBehaviour:
   attackTime: 0.05
   attackRadius: 0.75
   attackOffset: 0.28
+  attackSound: Slash
   proj: {fileID: 0}
+  shooter: 0

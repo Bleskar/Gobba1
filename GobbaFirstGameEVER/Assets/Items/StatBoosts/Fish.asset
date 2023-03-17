@@ -15,9 +15,9 @@ MonoBehaviour:
   name: Fish
   coverImage: {fileID: 21300000, guid: 1963fc49e1cf43d4db2743747fa45c9c, type: 3}
   description: 
-  healthBoost: 0
-  atkBoost: 0
-  speedBoost: 0
-  dashBoost: 0
-  atkspd: 0
+  healthBoost: 10
+  atkBoost: 5
+  speedBoost: 3
+  dashBoost: 4
+  atkspd: 20
   special: 0
