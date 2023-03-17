@@ -130,7 +130,7 @@ MonoBehaviour:
   radius: 0.1
   direction: {x: 0, y: 0, z: 0}
   speed: 20
-  damage: 10
+  damage: 0
   faceDirection: 1
   travelling: 1
   alwaysShow: 1

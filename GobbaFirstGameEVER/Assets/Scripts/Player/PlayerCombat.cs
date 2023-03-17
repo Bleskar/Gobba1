@@ -198,6 +198,7 @@ public class PlayerCombat : MonoBehaviour, IKillable
 
             Projectile Pr = arrow.GetComponent<Projectile>();
             Pr.direction = direction;
+            Pr.damage += AttackDamage;
         }
         if (!Holding.shooter)
         {
