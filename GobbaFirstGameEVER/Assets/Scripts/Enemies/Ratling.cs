@@ -10,6 +10,8 @@ public class Ratling : Projectile
     void Start()
     {
         anim = GetComponent<Animator>();
+        sr = GetComponent<SpriteRenderer>();
+        deathTimer = 20f;
         StartCoroutine(StartUp());
     }
 
@@ -20,7 +22,7 @@ public class Ratling : Projectile
         deathTimer -= Time.deltaTime;
         if (deathTimer <= 0)
         {
-            Kill();
+            Kill(null);
         }
 
         if (Travelling)

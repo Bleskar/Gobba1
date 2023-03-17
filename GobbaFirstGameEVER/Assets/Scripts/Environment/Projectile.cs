@@ -35,7 +35,7 @@ public class Projectile : MonoBehaviour
         deathTimer -= Time.deltaTime;
         if (deathTimer <= 0)
         {
-            Kill();
+            Kill(null);
         }
 
         if (Travelling)
@@ -50,12 +50,12 @@ public class Projectile : MonoBehaviour
         RaycastHit2D hit = Physics2D.CircleCast(transform.position, radius, direction.normalized, speed * Time.deltaTime, targetLayers);
         if (hit)
         {
-            IKillable pc = hit.transform.GetComponent<IKillable>();
-            if (pc != null)
-                pc.Damage(damage, direction);
+            IKillable ik = hit.transform.GetComponent<IKillable>();
+            if (ik != null)
+                ik.Damage(damage, direction);
 
             transform.position = hit.point;
-            Kill();
+            Kill(ik);
         }
         else
         {
@@ -63,9 +63,9 @@ public class Projectile : MonoBehaviour
         }
     }
 
-    public void Kill()
+    public void Kill(IKillable ik)
     {
-        if (!dead)
+        if (!dead && ik == null)
         {
             deathTimer = 2f;
             dead = true;

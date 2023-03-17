@@ -56,7 +56,8 @@ public class GameManager : MonoBehaviour
 
         ParticleSystem.EmitParams ep = new ParticleSystem.EmitParams
         {
-            position = position
+            position = position,
+            applyShapeToPosition = true
         };
 
         p.Emit(ep, emit);
