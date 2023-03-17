@@ -12,8 +12,8 @@ public class EnemyBowScript : MonoBehaviour
     float shootAnimation;
 
     public GameObject projectile;
-    public int arrows;
-    public int maxArrows;
+    public float arrows;
+    public float maxArrows;
     public int damage;
     public float force;
     public float attackOffset;
@@ -23,7 +23,9 @@ public class EnemyBowScript : MonoBehaviour
     public float timeDelay;
     private void Start()
     {
-        arrows = maxArrows;
+        arrows = 0;
+        maxArrows = 3 * Mathf.Exp((GameManager.Instance.CurrentLevel - 1) / 4);
+        Mathf.RoundToInt(maxArrows);
     }
     public void Attack(Vector3 direction)
     {
@@ -50,6 +52,7 @@ public class EnemyBowScript : MonoBehaviour
     }
     void Shoot(Vector3 direction)
     {
+        timeDelay /= Mathf.Exp((GameManager.Instance.CurrentLevel - 1) / 4);
         if (timeElapsed > timeDelay && arrows == 0)
         {
             arrows = maxArrows;

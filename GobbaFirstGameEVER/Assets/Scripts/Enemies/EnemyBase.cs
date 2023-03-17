@@ -5,12 +5,12 @@ using UnityEngine;
 public abstract class EnemyBase : MonoBehaviour, IKillable
 {
     [Header("Stats")]
-    public int maxHealth = 5;
+    public float maxHealth = 5;
 
-    public int Health { get; private set; }
+    public float Health { get; private set; }
 
     //HELLO EVERYBODY MY NAME IS MULTIPLIER
-    protected int Multiplier => GameManager.Instance.CurrentLevel;
+    protected float Multiplier => Mathf.Exp((GameManager.Instance.CurrentLevel - 1) / 4);
     
     //--ANIMATION--
     public string CurrentAnimation { get; private set; }
@@ -52,6 +52,8 @@ public abstract class EnemyBase : MonoBehaviour, IKillable
 
     public virtual void Kill()
     {
+        GameManager.Instance.PlayParticles("DeathPoof", transform.position, Random.Range(6, 12));
+
         if (Random.value < .25f)
             GameManager.Instance.DropHeart(transform.position, PlayerMovement.Instance.CurrentRoom);
 

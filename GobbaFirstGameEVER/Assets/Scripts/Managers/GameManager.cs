@@ -2,6 +2,7 @@ using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class GameManager : MonoBehaviour
 {
@@ -40,6 +41,27 @@ public class GameManager : MonoBehaviour
     [SerializeField] int health;
     [SerializeField] Weapon holding;
     [SerializeField] StatItem[] inventory = new StatItem[0];
+
+    [Header("Particles")]
+    [SerializeField] ParticleSystem[] particles = new ParticleSystem[0];
+
+    public void PlayParticles(string particleName, Vector3 position, int emit)
+    {
+        ParticleSystem p = Array.Find(particles, i => i.gameObject.name == particleName);
+        if (!p)
+        {
+            Debug.LogError($"Particles by the name of '{particleName}' doesn't exist!");
+            return;
+        }
+
+        ParticleSystem.EmitParams ep = new ParticleSystem.EmitParams
+        {
+            position = position,
+            applyShapeToPosition = true
+        };
+
+        p.Emit(ep, emit);
+    }
 
     public void SaveStats(PlayerInventory player)
     {

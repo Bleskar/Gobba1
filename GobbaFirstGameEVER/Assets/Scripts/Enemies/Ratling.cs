@@ -10,11 +10,21 @@ public class Ratling : Projectile
     void Start()
     {
         anim = GetComponent<Animator>();
+        sr = GetComponent<SpriteRenderer>();
+        deathTimer = 20f;
         StartCoroutine(StartUp());
     }
 
     void Update()
     {
+        sr.enabled = !dead || alwaysShow;
+
+        deathTimer -= Time.deltaTime;
+        if (deathTimer <= 0)
+        {
+            Kill(null);
+        }
+
         if (Travelling)
         {
             transform.right = direction;

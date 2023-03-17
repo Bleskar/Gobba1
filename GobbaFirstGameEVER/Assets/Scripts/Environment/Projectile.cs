@@ -14,11 +14,12 @@ public class Projectile : MonoBehaviour
     public bool faceDirection;
     public bool Travelling => travelling && !dead;
 
-    float deathTimer;
-    bool dead;
+    protected float deathTimer;
+    protected bool dead;
     public bool travelling;
+    public bool alwaysShow;
 
-    SpriteRenderer sr;
+    protected SpriteRenderer sr;
 
     private void Start()
     {
@@ -29,12 +30,12 @@ public class Projectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        sr.enabled = !dead;
+        sr.enabled = !dead || alwaysShow;
 
         deathTimer -= Time.deltaTime;
         if (deathTimer <= 0)
         {
-            Kill();
+            Kill(null);
         }
 
         if (Travelling)
@@ -49,12 +50,12 @@ public class Projectile : MonoBehaviour
         RaycastHit2D hit = Physics2D.CircleCast(transform.position, radius, direction.normalized, speed * Time.deltaTime, targetLayers);
         if (hit)
         {
-            IKillable pc = hit.transform.GetComponent<IKillable>();
-            if (pc != null)
-                pc.Damage(damage, direction);
+            IKillable ik = hit.transform.GetComponent<IKillable>();
+            if (ik != null)
+                ik.Damage(damage, direction);
 
             transform.position = hit.point;
-            Kill();
+            Kill(ik);
         }
         else
         {
@@ -62,9 +63,9 @@ public class Projectile : MonoBehaviour
         }
     }
 
-    public void Kill()
+    public void Kill(IKillable ik)
     {
-        if (!dead)
+        if (!dead && ik == null)
         {
             deathTimer = 2f;
             dead = true;

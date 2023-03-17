@@ -30,8 +30,9 @@ public class RatKing : EnemyBase
 
     private void Update()
     {
+        float dmg = 15 + 10 * Multiplier;
         sr.flipX = PlayerMovement.Instance.transform.position.x < transform.position.x;
-        AttackBox(new Vector2(0f,-.8f), new Vector2(1.5f, 1.9f), 15 + 10 * Multiplier);
+        AttackBox(new Vector2(0f,-.8f), new Vector2(1.5f, 1.9f), (int)dmg);
     }
 
     IEnumerator Phases()
@@ -40,13 +41,13 @@ public class RatKing : EnemyBase
         while (alive)
         {
             PlayAnimation("Walk");
-            float timer = Random.Range(3f, 5f);
+            float timer = Random.Range(3f / Multiplier, 5f / Multiplier);
             while (timer > 0f)
             {
                 timer -= Time.deltaTime;
 
                 Vector2 dir = ((Vector2)PlayerMovement.Instance.transform.position - (Vector2)transform.position).normalized;
-                rb.velocity = dir * speed;
+                rb.velocity = dir * speed * Multiplier;
 
                 yield return null;
             }
@@ -59,7 +60,7 @@ public class RatKing : EnemyBase
 
             PlayAnimation("Summon");
             
-            for (int i = 0; i < Random.Range(20 + 2 * Multiplier, 30 + 4 * Multiplier); i++)
+            for (int i = 0; i < Random.Range(20 + 10 * Multiplier, 40 + 20 * Multiplier); i++)
             {
                 yield return new WaitForSeconds(.5f/(.2f * (i + 6f)));
 
