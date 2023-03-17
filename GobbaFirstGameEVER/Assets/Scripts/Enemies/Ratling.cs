@@ -15,6 +15,14 @@ public class Ratling : Projectile
 
     void Update()
     {
+        sr.enabled = !dead || alwaysShow;
+
+        deathTimer -= Time.deltaTime;
+        if (deathTimer <= 0)
+        {
+            Kill();
+        }
+
         if (Travelling)
         {
             transform.right = direction;

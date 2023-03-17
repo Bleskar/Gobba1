@@ -101,10 +101,13 @@ MonoBehaviour:
   targetLayers:
     serializedVersion: 2
     m_Bits: 16576
+  radius: 0.25
   direction: {x: 0, y: 0, z: 0}
   speed: 9
   damage: 5
+  faceDirection: 0
   travelling: 0
+  alwaysShow: 1
 --- !u!95 &4850882972867853912
 Animator:
   serializedVersion: 4
