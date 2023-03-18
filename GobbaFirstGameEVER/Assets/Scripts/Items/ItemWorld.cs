@@ -72,6 +72,7 @@ public class ItemWorld : MonoBehaviour
         if (pickUpTimer > 0)
             return;
 
+        AudioManager.Play("PickUp2");
         pickUpTimer = initTime;
         PlayerMovement.Instance.Inventory.PickUpItem(this);
     }

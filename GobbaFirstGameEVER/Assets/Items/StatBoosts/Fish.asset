@@ -16,8 +16,8 @@ MonoBehaviour:
   coverImage: {fileID: 21300000, guid: 1963fc49e1cf43d4db2743747fa45c9c, type: 3}
   description: Phish
   healthBoost: 10
-  atkBoost: 5
-  speedBoost: 3
+  atkBoost: 2
+  speedBoost: -2
   dashBoost: 4
   atkspd: 20
   special: 0

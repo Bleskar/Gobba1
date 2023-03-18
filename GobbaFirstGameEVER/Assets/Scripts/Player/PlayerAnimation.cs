@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerAnimation : MonoBehaviour
 {
     PlayerCombat combat; 
+    PlayerMovement mvmnt; 
 
     SpriteRenderer sr;
     
@@ -13,12 +14,13 @@ public class PlayerAnimation : MonoBehaviour
 
     [HideInInspector] public Vector2 lastDirection;
 
-    public bool Animating => !PlayerCombat.Instance.Dead && !PlayerCombat.Instance.Damaged && !AnvilMenu.Instance.gameObject.activeSelf;
+    public bool Animating => !PlayerCombat.Instance.Dead && !PlayerCombat.Instance.Damaged && !AnvilMenu.Instance.gameObject.activeSelf && !mvmnt.Dashing;
 
     // Start is called before the first frame update
     void Start()
     {
         combat = GetComponent<PlayerCombat>();
+        mvmnt = GetComponent<PlayerMovement>();
 
         sr = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
@@ -75,7 +77,12 @@ public class PlayerAnimation : MonoBehaviour
     }
 
     public void Play(string a)
+        => Play(a, 1f);
+
+    public void Play(string a, float speed)
     {
+        anim.speed = speed;
+
         if (a == currentAnimation)
             return;
 

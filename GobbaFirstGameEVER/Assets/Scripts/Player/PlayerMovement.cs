@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public static PlayerMovement Instance { get; private set; }
     public PlayerInventory Inventory { get; private set; }
+    public PlayerAnimation Animation { get; private set; }
     public Room CurrentRoom { get; set; }
 
     [Header("Movement Options")]
@@ -66,6 +67,7 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         Inventory = GetComponent<PlayerInventory>();
+        Animation = GetComponent<PlayerAnimation>();
         Instance = this;
     }
 
@@ -122,9 +124,12 @@ public class PlayerMovement : MonoBehaviour
         AudioManager.Play("Dash");
         Dashing = true;
 
+        Animation.Play(direction.y <= 0f ? "DashDown" : "DashUp", 1f / DashTime);
+
         float timer = 0f;
         while (timer < DashTime)
         {
+            sr.flipX = direction.x < 0f;
             rb.velocity = direction * DashSpeed;
 
             timer += Time.deltaTime;

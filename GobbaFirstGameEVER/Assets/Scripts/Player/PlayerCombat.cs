@@ -253,6 +253,7 @@ public class PlayerCombat : MonoBehaviour, IKillable
             if (ik != null) 
             {
                 cam.GetComponent<CameraShaker>().Shake();
+                GameManager.Instance.PlayParticles("Spark", cda[i].transform.position, 1);
                 ik.Damage(AttackDamage, direction, this);  
             }
         }

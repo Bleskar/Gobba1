@@ -11,6 +11,8 @@ public class AudioManager : MonoBehaviour
     {
         if (Instance)
         {
+            PlayMusic(startMusic);
+
             Destroy(gameObject);
             return;
         }
@@ -30,6 +32,10 @@ public class AudioManager : MonoBehaviour
 
         //initialize music
         music = gameObject.AddComponent<AudioSource>();
+        music.Play();
+        music.loop = true;
+
+        PlayMusicLocal(startMusic);
     }
 
     [Range(0f, 1f)] public float masterVolume = 1f;
@@ -44,6 +50,12 @@ public class AudioManager : MonoBehaviour
     [SerializeField] Sound[] musicLibrary = new Sound[0];
     Sound currentMusic;
     AudioSource music;
+    [SerializeField] string startMusic;
+
+    private void Update()
+    {
+        music.pitch = Mathf.Lerp(music.pitch, PlayerCombat.Instance.Dead ? 0f : 1f, Time.unscaledDeltaTime * 2f);
+    }
 
     public static void Play(string name)
         => Instance.PlayLocal(name);
@@ -56,7 +68,7 @@ public class AudioManager : MonoBehaviour
 
     void PlayMusicLocal(string name)
     {
-        if (currentMusic.name == name)
+        if (currentMusic != null && currentMusic.name == name)
             return;
 
         StartCoroutine(Transition(name));
@@ -65,16 +77,21 @@ public class AudioManager : MonoBehaviour
     IEnumerator Transition(string name)
     {
         float timer = transitionTime / 2f;
-        while (timer > 0f)
+
+        if (currentMusic != null)
         {
-            timer -= Time.deltaTime;
-            music.volume = currentMusic.volume * musicVolume * masterVolume * 2f * (timer / transitionTime);
-            yield return null;
+            while (timer > 0f)
+            {
+                timer -= Time.deltaTime;
+                music.volume = currentMusic.volume * musicVolume * masterVolume * 2f * (timer / transitionTime);
+                yield return null;
+            }
         }
 
         music.volume = 0f;
-        currentMusic = Array.Find(soundLibrary, i => i.name == name);
+        currentMusic = Array.Find(musicLibrary, i => i.name == name);
         music.clip = currentMusic.clip;
+        music.Play();
 
         timer = transitionTime / 2f;
         while (timer > 0f)

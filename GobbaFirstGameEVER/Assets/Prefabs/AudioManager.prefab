@@ -113,6 +113,19 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     pitchRandom: 0.25
-  musicVolume: 1
+  - name: PickUp2
+    source: {fileID: 0}
+    clip: {fileID: 8300000, guid: 7a2e316810afbe840a5c73cd5191ba2e, type: 3}
+    volume: 1
+    pitch: 1
+    pitchRandom: 0.1
+  musicVolume: 0.5
   transitionTime: 0.5
-  musicLibrary: []
+  musicLibrary:
+  - name: Rat kingdom
+    source: {fileID: 0}
+    clip: {fileID: 8300000, guid: ceff98cd91a91264792e8803293f3024, type: 3}
+    volume: 1
+    pitch: 1
+    pitchRandom: 0
+  startMusic: Rat kingdom

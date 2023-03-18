@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class CameraShaker : MonoBehaviour
 {
+    //comon dude give me the camera shaker, shake your camera
+
     public float duration = 1f;
     public float scale = 1f;
     //public AnimationCurve curve;
 
     private void Update()
     {
-        if (Input.GetKeyDown("h"))
-        {
-            Shake();
-        }
+        //if (Input.GetKeyDown("h"))
+        //{
+        //    Shake();
+        //}
     }
     public void Shake()
     {
