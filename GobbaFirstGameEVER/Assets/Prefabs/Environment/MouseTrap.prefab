@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7629539802583497494}
   - component: {fileID: 7629539802583497482}
   - component: {fileID: 7629539802583497493}
+  - component: {fileID: 8219485024195544242}
   m_Layer: 0
   m_Name: MouseTrap
   m_TagString: Untagged
@@ -98,8 +99,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c44a36daf9c2b6b47820e98f987a161e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 25
   aliveTime: 5
+  rocketSprite: {fileID: 993424033, guid: 2fcf7d5509c593e479a26e82e20e43c1, type: 3}
+  acceleration: 5
+  rb: {fileID: 8219485024195544242}
 --- !u!58 &7629539802583497493
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -116,3 +119,24 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.45
+--- !u!50 &8219485024195544242
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7629539802583497492}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 4

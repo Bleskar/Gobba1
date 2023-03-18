@@ -17,12 +17,19 @@ public class TooltipUI : MonoBehaviour
         StatItem item = null;
 
         //Check hover
-        InventorySlotUI slot = CheckHoverUI();
+        InventorySlotUI slot = CheckHoverItemSlot();
         if (slot)
             item = PlayerMovement.Instance.Inventory.Items[slot.index];
         else
         {
-            item = CheckHover();
+            ProductSlot ps = CheckHoverProduct();
+
+            if (ps && ps.item)
+            {
+                item = ps.item.GetType() == typeof(StatItem) ? ((StatItem)ps.item) : null;
+            }
+            else
+                item = CheckHover();
         }
 
         //Display information
@@ -37,6 +44,8 @@ public class TooltipUI : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Q) && slot)
                 DropItem(slot.index);
+            else if (Input.GetMouseButtonDown(0) && slot && AnvilMenu.Instance.gameObject.activeSelf)
+                AnvilMenu.Instance.SelectItem(slot.index);
         }    
     }
 
@@ -69,7 +78,7 @@ public class TooltipUI : MonoBehaviour
         return $"{header} {(var > 0f ? "+" : "")}{var:N0}\n";
     }
 
-    InventorySlotUI CheckHoverUI()
+    InventorySlotUI CheckHoverItemSlot()
     {
         PointerEventData eventData = new PointerEventData(EventSystem.current);
         eventData.position = Input.mousePosition;
@@ -81,6 +90,25 @@ public class TooltipUI : MonoBehaviour
         foreach (RaycastResult item in res)
         {
             InventorySlotUI slot = item.gameObject.GetComponent<InventorySlotUI>();
+            if (slot)
+                return slot;
+        }
+
+        return null;
+    }
+
+    public ProductSlot CheckHoverProduct()
+    {
+        PointerEventData eventData = new PointerEventData(EventSystem.current);
+        eventData.position = Input.mousePosition;
+
+        List<RaycastResult> res = new List<RaycastResult>(0);
+
+        raycaster.Raycast(eventData, res);
+
+        foreach (RaycastResult item in res)
+        {
+            ProductSlot slot = item.gameObject.GetComponent<ProductSlot>();
             if (slot)
                 return slot;
         }

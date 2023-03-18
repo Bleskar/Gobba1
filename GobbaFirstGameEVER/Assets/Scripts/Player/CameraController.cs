@@ -77,5 +77,6 @@ public class CameraController : MonoBehaviour
         start.parentRoom.gameObject.SetActive(false);
         transitioning = false;
         transitionCooldown = .1f;
+        player.CurrentRoom = end.parentRoom;
     }
 }

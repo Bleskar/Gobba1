@@ -7,9 +7,11 @@ public class Generation : MonoBehaviour
     [Header("Rooms")]
     [SerializeField] Room startRoom;
     [SerializeField] Room[] roomPrefabs = new Room[0];
+    [SerializeField] Room[] specialRoomPrefabs = new Room[0];
 
     int Rooms => GameManager.Instance.Rooms;
     int ExtraRooms => GameManager.Instance.ExtraRooms;
+    int SpecialRooms => GameManager.Instance.SpecialRooms;
 
     [SerializeField] Room bossRoom;
 
@@ -95,6 +97,28 @@ public class Generation : MonoBehaviour
             dungeon.Add(currentRoom);
         }
         #endregion
+
+        #region special rooms
+        // Create special rooms
+        for (int i = 0; i < SpecialRooms; i++)
+        {
+            pivot = GetRandomPivot();
+
+            door = GetDoorFromRoom(pivot);
+            Vector3 roomOffset = door.transform.localPosition;
+
+            currentRoom = CreateSpecialRoomFromRoom(pivot, roomOffset);
+
+            newDoor = GetDoorFromDoor(currentRoom, door);
+            currentRoom.transform.position -= newDoor.transform.localPosition;
+
+            door.connection = newDoor;
+            newDoor.connection = door;
+
+            currentRoom.extra = true;
+            dungeon.Add(currentRoom);
+        }
+        #endregion
     }
 
     Room GetRandomPivot()
@@ -120,6 +144,12 @@ public class Generation : MonoBehaviour
     {
         return CreateNewRoom(r.transform.position + offset,
                 roomPrefabs[Random.Range(0, roomPrefabs.Length)]);
+    }
+
+    Room CreateSpecialRoomFromRoom(Room r, Vector3 offset)
+    {
+        return CreateNewRoom(r.transform.position + offset,
+                specialRoomPrefabs[Random.Range(0, specialRoomPrefabs.Length)]);
     }
 
     bool HasAvailableDoor(Room r)

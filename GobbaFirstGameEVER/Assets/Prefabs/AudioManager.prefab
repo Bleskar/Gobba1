@@ -107,6 +107,12 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     pitchRandom: 0.25
+  - name: ChestOpen
+    source: {fileID: 0}
+    clip: {fileID: 8300000, guid: b1519786f93bae34d9403e69e0dd210b, type: 3}
+    volume: 1
+    pitch: 1
+    pitchRandom: 0.25
   musicVolume: 1
   transitionTime: 0.5
   musicLibrary: []

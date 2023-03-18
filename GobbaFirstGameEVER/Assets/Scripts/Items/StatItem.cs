@@ -21,4 +21,5 @@ public enum ItemSpecial
     TrapTrail, //lägger ut fällor efter sig
     Multishot, //skjuter tre projectiles
     Cactus, //Gör skada tillbaka när man tar skada
+    RocketTrap, //fällor, fast raket :)
 }

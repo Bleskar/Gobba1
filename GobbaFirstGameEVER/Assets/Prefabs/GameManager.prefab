@@ -49,6 +49,12 @@ MonoBehaviour:
   itemPrefab: {fileID: 7391053110124235872, guid: a65a5bb4da9273b41810acc2afccccc9, type: 3}
   heartPrefab: {fileID: 3455132880919343195, guid: d9fc6bd1836de8b49ae360660078ec1f, type: 3}
   trap: {fileID: 7629539802583497482, guid: f6e03cd1756801b4189e16af0c1a3382, type: 3}
+  recipes:
+  - {fileID: 11400000, guid: 0c9e694adb252e246b92468b8516dc2d, type: 2}
+  - {fileID: 11400000, guid: b26b1def29529d245a6be181b062daaf, type: 2}
+  - {fileID: 11400000, guid: 782c4a2bb08b02941825c1bfcc16bb88, type: 2}
+  - {fileID: 11400000, guid: d75b7ca15a7a0764f892f8f35521f171, type: 2}
+  - {fileID: 11400000, guid: 5d76d38eda072f44f91da2f9669f8706, type: 2}
   enemyLayer: 15
   health: 0
   holding: {fileID: 0}

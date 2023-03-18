@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerInventory : MonoBehaviour
 {
+    public static PlayerInventory Instance { get; private set; }
 
     [SerializeField] Weapon holding;
     public Weapon Holding
@@ -16,15 +17,25 @@ public class PlayerInventory : MonoBehaviour
     public List<StatItem> Items => items;
     [SerializeField] int maxItems = 10;
 
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         GameManager.Instance.LoadStats(this);
     }
 
+    public void RemoveItem(int index)
+    {
+        items.RemoveAt(index);
+    }
+
     public void DropItem(int index)
     {
-        GameManager.Instance.SpawnItem(transform.position + (Vector3)Random.insideUnitCircle, items[index], PlayerMovement.Instance.CurrentRoom);
+        //GameManager.Instance.SpawnItem(transform.position + (Vector3)Random.insideUnitCircle, items[index], PlayerMovement.Instance.CurrentRoom);
         items.RemoveAt(index);
     }
 

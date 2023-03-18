@@ -13,7 +13,7 @@ public class PlayerAnimation : MonoBehaviour
 
     [HideInInspector] public Vector2 lastDirection;
 
-    public bool Animating => !PlayerCombat.Instance.Dead && !PlayerCombat.Instance.Damaged;
+    public bool Animating => !PlayerCombat.Instance.Dead && !PlayerCombat.Instance.Damaged && !AnvilMenu.Instance.gameObject.activeSelf;
 
     // Start is called before the first frame update
     void Start()

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Chest : MonoBehaviour
+public class Chest : MonoBehaviour, IInteractable
 {
     SpriteRenderer sr;
     public Sprite open;
@@ -10,13 +10,15 @@ public class Chest : MonoBehaviour
     public Room room;
     bool chestOpened = false;
     public Vector3 offset;
-    private void OnTriggerEnter2D(Collider2D collision)
+
+    public void Interact()
     {
-        
-        if (chestOpened || !collision.GetComponent<PlayerMovement>())
+        if (chestOpened)
         {
             return;
         }
+
+        AudioManager.Play("ChestOpen");
         chestOpened = true;
         ItemWorld itm = GameManager.Instance.SpawnItem(transform.position + offset, item, room);
         itm.gameObject.transform.parent = this.transform;

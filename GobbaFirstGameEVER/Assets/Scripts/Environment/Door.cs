@@ -37,9 +37,9 @@ public class Door : MonoBehaviour
         else
         {
             doorRenderer.gameObject.SetActive(connection);
-            SpriteRenderer sr = doorRenderer.gameObject.GetComponentInChildren<SpriteRenderer>();
-            if (sr)
+            if (doorRenderer.transform.childCount > 0)
             {
+                SpriteRenderer sr = doorRenderer.transform.GetChild(0).GetComponent<SpriteRenderer>();
                 sr.color = bossDoor ? Color.red : Color.white;
             }
             else

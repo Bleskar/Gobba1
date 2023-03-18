@@ -144,7 +144,7 @@ public class PlayerCombat : MonoBehaviour, IKillable
         else if (iTime > 0f)
             iTime -= Time.deltaTime;
 
-        dropTimer -= Inventory.PerkLevel(ItemSpecial.TrapTrail) * Time.deltaTime;
+        dropTimer -= (Inventory.PerkLevel(ItemSpecial.TrapTrail) + Inventory.PerkLevel(ItemSpecial.RocketTrap)) * Time.deltaTime;
         if (dropTimer <= 0f)
         {
             dropTimer += trapDropTime;
@@ -269,14 +269,14 @@ public class PlayerCombat : MonoBehaviour, IKillable
 
     public void Damage(int dmg, Vector2 knock, IKillable attacker)
     {
+        if (iTime > 0f || Health <= 0)
+            return;
+
         if (Movement.Dashing && Inventory.HasPerk(ItemSpecial.SmokeDash))
             return;
 
         if (Inventory.HasPerk(ItemSpecial.Cactus))
             attacker?.Damage((int)(AttackDamage * .1f * Inventory.PerkLevel(ItemSpecial.Cactus)), -knock, this);
-
-        if (iTime > 0f || Health <= 0)
-            return;
 
         Health -= dmg;
         sr.color = Color.red;

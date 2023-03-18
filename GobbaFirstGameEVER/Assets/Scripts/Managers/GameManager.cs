@@ -28,11 +28,13 @@ public class GameManager : MonoBehaviour
     public int CurrentLevel => level;
     public int Rooms => level + 3;
     public int ExtraRooms => level / 2;
+    public int SpecialRooms => level <= 1 ? 0 : (level + 2) / 3;
 
     [Header("Items")]
     [SerializeField] ItemWorld itemPrefab;
     [SerializeField] Heart heartPrefab;
     [SerializeField] RatTrap trap;
+    public CombineRecipe[] recipes = new CombineRecipe[0];
 
     [Header("Layers")]
     [SerializeField] int enemyLayer;

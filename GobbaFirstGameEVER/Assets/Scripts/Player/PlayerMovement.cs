@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public static PlayerMovement Instance { get; private set; }
     public PlayerInventory Inventory { get; private set; }
-    public Room CurrentRoom { get; private set; }
+    public Room CurrentRoom { get; set; }
 
     [Header("Movement Options")]
     [SerializeField] float acceleration = 50f;
@@ -57,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
     float DashTime => dashLength / DashSpeed;
     public bool Dashing { get; private set; }
 
-    public bool Frozen => roomTransition || Dashing || PlayerCombat.Instance.Dead || PlayerCombat.Instance.Damaged;
+    public bool Frozen => roomTransition || Dashing || PlayerCombat.Instance.Dead || PlayerCombat.Instance.Damaged || AnvilMenu.Instance.gameObject.activeSelf;
     public bool roomTransition;
 
     Rigidbody2D rb;
