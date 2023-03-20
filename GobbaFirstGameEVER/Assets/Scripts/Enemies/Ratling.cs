@@ -12,6 +12,9 @@ public class Ratling : Projectile
         anim = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
         deathTimer = 20f;
+        float dmg = damage;
+        dmg *= Mathf.Exp((GameManager.Instance.CurrentLevel - 1) / 4);
+        damage = (int)Mathf.Round(dmg);
         StartCoroutine(StartUp());
     }
 
