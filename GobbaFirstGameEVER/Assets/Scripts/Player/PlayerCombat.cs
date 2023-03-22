@@ -79,10 +79,10 @@ public class PlayerCombat : MonoBehaviour, IKillable
 
             foreach (StatItem i in Inventory.Items)
             {
-                boost += i.speedBoost;
+                boost += i.atkspd;
             }
 
-            t *= Mathf.Exp(-boost / 10f);
+            t *= Mathf.Exp(-boost / 100f);
 
             return t;
         }
