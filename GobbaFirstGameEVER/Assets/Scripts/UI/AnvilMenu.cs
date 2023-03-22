@@ -106,8 +106,16 @@ public class AnvilMenu : MonoBehaviour
         if (!i)
             return;
 
-        PlayerInventory.Instance.RemoveItem(ingredient1);
-        PlayerInventory.Instance.RemoveItem(ingredient2);
+        if (ingredient1 > ingredient2)
+        {
+            PlayerInventory.Instance.RemoveItem(ingredient1);
+            PlayerInventory.Instance.RemoveItem(ingredient2);
+        }
+        else
+        {
+            PlayerInventory.Instance.RemoveItem(ingredient2);
+            PlayerInventory.Instance.RemoveItem(ingredient1);
+        }
 
         OpenMenu();
 
