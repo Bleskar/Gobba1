@@ -43,7 +43,7 @@ public class RatTrap : MonoBehaviour
         else
         {
             sr.flipX = rb.velocity.x < 0f;
-            rb.velocity += ((Vector2)target.transform.position - (Vector2)transform.position).normalized * acceleration * Time.deltaTime;
+            rb.velocity += ((Vector2)target.transform.position - ((Vector2)transform.position).normalized * acceleration * Time.deltaTime + (Vector2)transform.position).normalized * acceleration * Time.deltaTime * (PlayerInventory.Instance.PerkLevel(ItemSpecial.RocketTrap) - 1) * .5f;
         }
     }
 
@@ -66,7 +66,15 @@ public class RatTrap : MonoBehaviour
         EnemyBase eb = collision.GetComponent<EnemyBase>();
         if (eb)
         {
-            eb.Damage(PlayerCombat.Instance.AttackDamage * (3 + PlayerInventory.Instance.PerkLevel(ItemSpecial.TrapTrail) + PlayerInventory.Instance.PerkLevel(ItemSpecial.RocketTrap)), collision.transform.position - transform.position, null);
+            int d = 0;
+
+            foreach (StatItem i in PlayerCombat.Instance.Inventory.Items)
+                d += i.atkBoost;
+
+            if (d < 1)
+                d = 1;
+
+            eb.Damage(d * (PlayerInventory.Instance.PerkLevel(ItemSpecial.TrapTrail) + 2 * PlayerInventory.Instance.PerkLevel(ItemSpecial.RocketTrap)), collision.transform.position - transform.position, null);
             Destroy(gameObject);
         }
     }
